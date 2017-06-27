@@ -1,0 +1,992 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head id="pageHead"><title>
+	Find a site   - Discover Camping Reservation System
+</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta http-equiv="Content-Script-Type" content="text/javascript" /><meta http-equiv="Content-Style-Type" content="text/css" />
+    <!--ASP.NET - Tip - Prevent Flashing on Postbacks-->
+    <meta http-equiv="Page-Enter" content="Alpha(opacity=100)" /><meta name="language" content="en, fr" /><meta name="Description" content="Parks online reservation" /><meta name="keywords" content="campsite,reservation" /> 
+        <!-- favicon -->
+        <link rel="apple-touch-icon" sizes="57x57" href="/DiscoverCamping/apple-touch-icon-57x57.png" />
+	    <link rel="apple-touch-icon" sizes="60x60" href="/DiscoverCamping/apple-touch-icon-60x60.png" />
+	    <link rel="apple-touch-icon" sizes="72x72" href="/DiscoverCamping/apple-touch-icon-72x72.png" />
+	    <link rel="apple-touch-icon" sizes="76x76" href="/DiscoverCamping/apple-touch-icon-76x76.png" />
+	    <link rel="apple-touch-icon" sizes="114x114" href="/DiscoverCamping/apple-touch-icon-114x114.png" />
+	    <link rel="apple-touch-icon" sizes="120x120" href="/DiscoverCamping/apple-touch-icon-120x120.png" />
+	    <link rel="apple-touch-icon" sizes="144x144" href="/DiscoverCamping/apple-touch-icon-144x144.png" />
+	    <link rel="apple-touch-icon" sizes="152x152" href="/DiscoverCamping/apple-touch-icon-152x152.png" />
+	    <link rel="apple-touch-icon" sizes="180x180" href="/DiscoverCamping/apple-touch-icon-180x180.png" />
+	    <link rel="icon" type="image/png" href="/DiscoverCamping/favicon-32x32.png" sizes="32x32" />
+	    <link rel="icon" type="image/png" href="/DiscoverCamping/android-chrome-192x192.png" sizes="192x192" />
+	    <link rel="icon" type="image/png" href="/DiscoverCamping/favicon-96x96.png" sizes="96x96" />
+	    <link rel="icon" type="image/png" href="/DiscoverCamping/favicon-16x16.png" sizes="16x16" />
+	    <link rel="manifest" href="/DiscoverCamping/manifest.json" />
+	    <link rel="mask-icon" href="/DiscoverCamping/safari-pinned-tab.svg" color="#5bbad5" />
+	    <link rel="shortcut icon" href="/DiscoverCamping/favicon.ico" />
+	    <meta name="msapplication-TileColor" content="#2d89ef" />
+	    <meta name="msapplication-TileImage" content="~/mstile-144x144.png?v=qAAKrq5xpv" />
+	    <meta name="theme-color" content="#ffffff" />
+        <!-- /favicon -->
+        <link href="/DiscoverCamping/style/bundle?v=mT3tQdhiAlV6SF15FvfJpfXijGg4ySNxGa7jF7LA2Go1" rel="stylesheet"/>
+<link href="https://secure.camis.com/DiscoverCamping//style/viewer.css" rel="stylesheet" type="text/css" title="ViewStyles" /><link href="https://secure.camis.com/DiscoverCamping/style/layout_print.css" rel="stylesheet" type="text/css" media="print" /><style type="text/css">
+	/* <![CDATA[ */
+	#mainMenu img.icon { border-style:none;vertical-align:middle; }
+	#mainMenu img.separator { border-style:none;display:block; }
+	#mainMenu img.horizontal-separator { border-style:none;vertical-align:middle; }
+	#mainMenu ul { list-style:none;margin:0;padding:0;width:auto; }
+	#mainMenu ul.dynamic { z-index:1; }
+	#mainMenu a { text-decoration:none;white-space:nowrap;display:block; }
+	#mainMenu a.static { padding-left:0.15em;padding-right:0.15em; }
+	#mainMenu a.popout-dynamic { background:url("/DiscoverCamping/WebResource.axd?d=6kQXKXmYqtPjNoORaQ4ZqU-QoxS-JDJ6HVS2qVTCW7LiT0GZgmZ6Y9eDkR6D9gu_dcR6iocE3Y9D_2by6rW4ih400N4ucYxEm238YaX33cc1&t=636280921286603683") no-repeat right center;padding-right:14px; }
+	/* ]]> */
+</style></head>
+<body id="pageBody">
+    <div>
+          <a href="#content" class="skip">Skip to content</a>
+    </div>
+    <form method="post" action="https://secure.camis.com/DiscoverCamping/Viewer.aspx" id="MainForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTU4MzI5MTIwNw9kFgJmD2QWAgIED2QWDmYPFgIeBmFjdGlvbgU0aHR0cHM6Ly9zZWN1cmUuY2FtaXMuY29tL0Rpc2NvdmVyQ2FtcGluZy9WaWV3ZXIuYXNweBYEAgUPZBYIZg88KwANAgAPFgIeC18hRGF0YUJvdW5kZ2QMFCsABgUTMDowLDA6MSwwOjIsMDozLDA6NBQrAAIWEB4EVGV4dAUESG9tZR4FVmFsdWUFBEhvbWUeC05hdmlnYXRlVXJsBRovRGlzY292ZXJDYW1waW5nL0hvbWUuYXNweB4HVG9vbFRpcAUTUmV0dXJuIHRvIEhvbWUgUGFnZR4HRW5hYmxlZGceClNlbGVjdGFibGVnHghEYXRhUGF0aAUaL2Rpc2NvdmVyY2FtcGluZy9ob21lLmFzcHgeCURhdGFCb3VuZGdkFCsAAhYQHwIFC0Jyb3dzZSBNYXBzHwMFC0Jyb3dzZSBNYXBzHwQFGy9EaXNjb3ZlckNhbXBpbmcvQnJvd3NlTWFwcx8FBQtCcm93c2UgTWFwcx8GZx8HZx8IBRsvZGlzY292ZXJjYW1waW5nL2Jyb3dzZW1hcHMfCWdkFCsAAhYQHwIFD015IFJlc2VydmF0aW9ucx8DBQ9NeSBSZXNlcnZhdGlvbnMfBAUlL0Rpc2NvdmVyQ2FtcGluZy9BY2NvdW50L0RlZmF1bHQuYXNweB8FBSNWaWV3LCBDaGFuZ2Ugb3IgQ2FuY2VsIFJlc2VydmF0aW9ucx8GZx8HZx8IBSUvZGlzY292ZXJjYW1waW5nL2FjY291bnQvZGVmYXVsdC5hc3B4HwlnZBQrAAIWDh8CBQtJbmZvcm1hdGlvbh8DBQtJbmZvcm1hdGlvbh8FBRJJbmZvcm1hdGlvbiBUb3BpY3MfBmcfB2gfCAUkZmJkZGFkOWYtZTc5Yy00ODk0LWI3ZGUtMjQxYmE1OThlODY5HwlnFCsABwUXMDowLDA6MSwwOjIsMDozLDA6NCwwOjUUKwACFhAfAgUTUmVzZXJ2YXRpb24gU2VydmljZR8DBRNSZXNlcnZhdGlvbiBTZXJ2aWNlHwQFKC9EaXNjb3ZlckNhbXBpbmcvUmVzZXJ2YXRpb25TZXJ2aWNlLmFzcHgfBQUjUmVhZCBkZXRhaWxzIG9uIFJlc2VydmF0aW9uIFNlcnZpY2UfBmcfB2cfCAUoL2Rpc2NvdmVyY2FtcGluZy9yZXNlcnZhdGlvbnNlcnZpY2UuYXNweB8JZ2QUKwACFhAfAgUUUmVzZXJ2YXRpb24gUG9saWNpZXMfAwUUUmVzZXJ2YXRpb24gUG9saWNpZXMfBAUoaHR0cDovL3d3dy5lbnYuZ292LmJjLmNhL2JjcGFya3MvcmVzZXJ2ZR8FBRRSZXNlcnZhdGlvbiBQb2xpY2llcx8GZx8HZx8IBShodHRwOi8vd3d3LmVudi5nb3YuYmMuY2EvYmNwYXJrcy9yZXNlcnZlHwlnZBQrAAIWEB8CBQ5Hcm91cCBQb2xpY2llcx8DBQ5Hcm91cCBQb2xpY2llcx8EBTNodHRwOi8vd3d3LmVudi5nb3YuYmMuY2EvYmNwYXJrcy9yZXNlcnZlL2dyb3VwLmh0bWwfBQUOR3JvdXAgUG9saWNpZXMfBmcfB2cfCAUzaHR0cDovL3d3dy5lbnYuZ292LmJjLmNhL2JjcGFya3MvcmVzZXJ2ZS9ncm91cC5odG1sHwlnZBQrAAIWEB8CBRBQcml2YWN5IFBvbGljaWVzHwMFEFByaXZhY3kgUG9saWNpZXMfBAUlaHR0cDovL3d3dy5nb3YuYmMuY2EvY29tL3ByaXZhY3kuaHRtbB8FBSRSZWFkIGRldGFpbHMgb24gb3VyIHByaXZhY3kgcG9saWNpZXMfBmcfB2cfCAUlaHR0cDovL3d3dy5nb3YuYmMuY2EvY29tL3ByaXZhY3kuaHRtbB8JZ2QUKwACFhAfAgUTQnJvd3NlciBJbmZvcm1hdGlvbh8DBRNCcm93c2VyIEluZm9ybWF0aW9uHwQFHi9EaXNjb3ZlckNhbXBpbmcvQnJvd3NlcnMuYXNweB8FBTJSZWFkIGRldGFpbHMgb24gYnJvd3NlciByZXF1aXJlbWVudHMgZm9yIHRoaXMgc2l0ZR8GZx8HZx8IBR4vZGlzY292ZXJjYW1waW5nL2Jyb3dzZXJzLmFzcHgfCWdkFCsAAhYQHwIFFFNlY3VyaXR5IEluZm9ybWF0aW9uHwMFFFNlY3VyaXR5IEluZm9ybWF0aW9uHwQFHi9EaXNjb3ZlckNhbXBpbmcvU2VjdXJpdHkuYXNweB8FBTRSZWFkIGRldGFpbHMgb24gaG93IHNlY3VyaXR5IGlzIGhhbmRsZWQgYXQgdGhpcyBzaXRlHwZnHwdnHwgFHi9kaXNjb3ZlcmNhbXBpbmcvc2VjdXJpdHkuYXNweB8JZ2QUKwACFg4fAgUESGVscB8DBQRIZWxwHwUFC0hlbHAgVG9waWNzHwZnHwdoHwgFJDA1M2VjNzhiLTlhMDctNGZiNy1iODZmLTA1NTgwMGE0ZjViNx8JZxQrAAQFCzA6MCwwOjEsMDoyFCsAAhYQHwIFC0hlbHAgVG9waWNzHwMFC0hlbHAgVG9waWNzHwQFGi9EaXNjb3ZlckNhbXBpbmcvSGVscC5hc3B4HwUFG0dldCBoZWxwIHVzaW5nIHRoaXMgc2VydmljZR8GZx8HZx8IBRovZGlzY292ZXJjYW1waW5nL2hlbHAuYXNweB8JZ2QUKwACFhAfAgUDRkFRHwMFA0ZBUR8EBRkvRGlzY292ZXJDYW1waW5nL0ZhcS5hc3B4HwUFGkZyZXF1ZW50bHkgQXNrZWQgUXVlc3Rpb25zHwZnHwdnHwgFGS9kaXNjb3ZlcmNhbXBpbmcvZmFxLmFzcHgfCWdkFCsAAhYQHwIFCENvbW1lbnRzHwMFCENvbW1lbnRzHwQFHi9EaXNjb3ZlckNhbXBpbmcvQ29tbWVudHMuYXNweB8FBR9TdWJtaXQgY29tbWVudHMgb24gdGhpcyBzZXJ2aWNlHwZnHwdnHwgFHi9kaXNjb3ZlcmNhbXBpbmcvY29tbWVudHMuYXNweB8JZ2RkAgEPZBYCAgEPFgQeCWlubmVyaHRtbAULU3lzdGVtIFRpbWUeBXRpdGxlBR9TeXN0ZW0gdGltZSBvcGVucyBpbiBuZXcgd2luZG93ZAICD2QWAmYPFgIeA3NyYwVIaHR0cHM6Ly9zZWN1cmUuY2FtaXMuY29tL0Rpc2NvdmVyQ2FtcGluZy9JbWFnZXMvVG9vbFRpcEhlbHBJY29uX0JsdWUucG5nZAIFD2QWAgIBDw8WBB8CBQxDYXJ0IChFbXB0eSkfBAU2aHR0cHM6Ly9zZWN1cmUuY2FtaXMuY29tL0Rpc2NvdmVyQ2FtcGluZy9WaWV3Q2FydC5hc3B4FgIeBWNsYXNzBRBwYWRkaW5nTGVmdFJpZ2h0ZAIGD2QWKgIBDxYCHwwFSGh0dHBzOi8vc2VjdXJlLmNhbWlzLmNvbS9EaXNjb3ZlckNhbXBpbmcvSW1hZ2VzL1Rvb2xUaXBIZWxwSWNvbl9CbHVlLnBuZ2QCAg8WAh8MBUhodHRwczovL3NlY3VyZS5jYW1pcy5jb20vRGlzY292ZXJDYW1waW5nL0ltYWdlcy9Ub29sVGlwSGVscEljb25fQmx1ZS5wbmdkAgQPFgIfDAVIaHR0cHM6Ly9zZWN1cmUuY2FtaXMuY29tL0Rpc2NvdmVyQ2FtcGluZy9JbWFnZXMvVG9vbFRpcEhlbHBJY29uX0JsdWUucG5nZAIFDxYCHwwFSGh0dHBzOi8vc2VjdXJlLmNhbWlzLmNvbS9EaXNjb3ZlckNhbXBpbmcvSW1hZ2VzL1Rvb2xUaXBIZWxwSWNvbl9CbHVlLnBuZ2QCBw8WAh8MBUhodHRwczovL3NlY3VyZS5jYW1pcy5jb20vRGlzY292ZXJDYW1waW5nL0ltYWdlcy9Ub29sVGlwSGVscEljb25fQmx1ZS5wbmdkAggPZBYCZg8WAh8MBUhodHRwczovL3NlY3VyZS5jYW1pcy5jb20vRGlzY292ZXJDYW1waW5nL0ltYWdlcy9Ub29sVGlwSGVscEljb25fQmx1ZS5wbmdkAgkPZBYCZg8WAh8MBUhodHRwczovL3NlY3VyZS5jYW1pcy5jb20vRGlzY292ZXJDYW1waW5nL0ltYWdlcy9Ub29sVGlwSGVscEljb25fQmx1ZS5wbmdkAgoPZBYCZg8WAh8MBUhodHRwczovL3NlY3VyZS5jYW1pcy5jb20vRGlzY292ZXJDYW1waW5nL0ltYWdlcy9Ub29sVGlwSGVscEljb25fQmx1ZS5wbmdkAgsPEA8WAh8FBQhMb2NhdGlvbmQPFmFmAgECAgIDAgQCBQIGAgcCCAIJAgoCCwIMAg0CDgIPAhACEQISAhMCFAIVAhYCFwIYAhkCGgIbAhwCHQIeAh8CIAIhAiICIwIkAiUCJgInAigCKQIqAisCLAItAi4CLwIwAjECMgIzAjQCNQI2AjcCOAI5AjoCOwI8Aj0CPgI/AkACQQJCAkMCRAJFAkYCRwJIAkkCSgJLAkwCTQJOAk8CUAJRAlICUwJUAlUCVgJXAlgCWQJaAlsCXAJdAl4CXwJgFmEQBRZCcml0aXNoIENvbHVtYmlhIFBhcmtzBSRiMzNhY2RmOS0wMTUxLTRmMWYtODU5MS03ZWNlZjVjM2RkYTRnEAUKQWxpY2UgTGFrZQUkNzMzMmEzZGQtYTI3MS00NDQyLWE4ZDQtM2EyY2JkODI0MTE1ZxAFCUJhbWJlcnRvbgUkMzIyYTgwMjQtN2IxMC00YWY5LThiNDktMmYyYTY1ZDE2MmVkZxAFCkJlYXIgQ3JlZWsFJDQ1NzQ3YzUwLTVlNjctNDBkYi05OTZiLWNjZjdmZWU1MGU1ZGcQBQdCZWF0dG9uBSQwZmExNDg4YS1jMmYzLTQ1ZDktODdlYy1hMjEwNmMzY2I0OWVnEAUIQmVhdW1vbnQFJGQ5OGRiMTg2LWRiZWYtNDU1ZS1hOGJlLWIxMjY1NWJlNDMyZGcQBQxCaWcgQmFyIExha2UFJDNkMTcxODQ4LWNkNDMtNDVjOS05ZGYwLWMzZTY3MjBmYWVlZWcQBQ9CaXJrZW5oZWFkIExha2UFJGU0YzcwNjEyLTc0MTktNDg4Zi1iOGY4LWYxMWU4Y2FhYWY0M2cQBQ1CbGFua2V0IENyZWVrBSQzMWI1Njg4Yi0xMTNkLTQwOTAtYThiYS04MzJjNWQ4MTViZDVnEAULQm93cm9uIExha2UFJDgzNDE0ZmE4LWEwYWUtNGY4NS04ODMxLTY1OWIzZTAxMjBlYmcQBQxCcm9tbGV5IFJvY2sFJGQzMTJmOTc0LTU5NzUtNGNkNi04ZDUzLWUyYmRjZDc1YzI4NmcQBRBDYXJwIExha2UgSXNsYW5kBSRmNzUxMGM2NC1hNDEwLTQyNjUtYmQyYi1lMzQ1MTIzYjI2YTBnEAUOQ2hhbXBpb24gTGFrZXMFJGJkYmNiZDk3LTdiNmEtNDI1YS05YTZmLTgwOWY2MTk5YWUwY2cQBQxDaGFybGllIExha2UFJGExYjcxNDgxLWI0NjYtNDRmZS1hYjhiLTAwNjU4NWIyYjhlN2cQBQ9DaGlsbGl3YWNrIExha2UFJDI4OThlODFkLTBkYzktNDZmOS1iMjk3LTU2YTk4N2ZmMWE3Y2cQBQ5Db3dpY2hhbiBSaXZlcgUkZjY2NWExYTAtNTc0ZC00YmU1LTg4MmQtNTU5MmEwZjQwNjQ4ZxAFDUNyb29rZWQgUml2ZXIFJGZiN2I0MDkyLTZiNDUtNGM4My1hYzJjLTA1OWJmYTQxM2M0MmcQBQtDdWx0dXMgTGFrZQUkODcyZWVmOWEtZmNjZS00ZmI4LWEzNmUtYWE4YjdlYWJhZmJmZxAFCURyeSBHdWxjaAUkNTJlMTMyMDktNDM5Yi00NzBhLTlkMWYtZGU2OGVmMGY1YTJmZxAFDUUuIEMuIE1hbm5pbmcFJGY1MzI2YzEwLTQzNzgtNDgyNy05ZDAzLTQ5YTY4MjJjMWM4NmcQBQlFbGsgRmFsbHMFJGMwMTRiNDAzLWNhNTgtNGEwOS04N2RjLTU4NjJhNjRhNWRlYmcQBQdFbGxpc29uBSQyNDdhODFjYi0yOTk5LTRjNjktYjAzMC0yZDdmN2ViMmUxZWVnEAUWRW5nbGlzaG1hbiBSaXZlciBGYWxscwUkNWZmZDA0MTItNWMwMS00ODY3LThjMjEtMDcwMDVlZWM2N2NhZxAFCkZpbGxvbmdsZXkFJGY2YzRkZGE2LTBiYjYtNDc3NS1iZWIxLTA3Zjg5OTU1NDM5MGcQBQZGaW50cnkFJGI4NDRjY2UyLWUzNTUtNGRlMC05ODE0LWJhMjM0NTlmMTViM2cQBQxGcmVuY2ggQmVhY2gFJDE4ZTNiYTIwLTNhYzctNDk0Yy05MjYyLWFjOTc1NjVmYzgwYmcQBQlHbGFkc3RvbmUFJDE2Zjc0ODczLWIyNjgtNGZkOS05YzUzLWE5YTAyYTc2MTcxYmcQBQtHb2xkZW4gRWFycwUkOWY1MTg1NmUtMGM5OS00ZDQ4LWE5ZjUtNGRhNTIyNzQ4YTY5ZxAFCkdvbGRzdHJlYW0FJDM0N2JlZTEzLWQ5NTYtNGZmMi1iOGYwLTU0Mjg3YThkY2EwMGcQBQpHb3Jkb24gQmF5BSQyNWE0MDA2Yi00MjkyLTRiNGQtYjFlNy03YmVjYzRhNDIwOGFnEAUKR3JlZW4gTGFrZQUkMGQ0OWUzODgtMzMzNC00NTUwLWFjOTgtZWZjYjkzODUzNjljZxAFBkhlcmFsZAUkODlmMTZlZTktZTg2Yi00MGY2LWJkMjgtMDAzZmM4MDhiNjQ5ZxAFDUhvcnNlZmx5IExha2UFJGNhODM3N2YyLTI4YzMtNDc1MC1hMTg3LTY0YTdkMDhmMzFjNGcQBQtJbmxhbmQgTGFrZQUkNmJhMGIwN2ItMDg3Ny00YmY1LWIyMDMtODUwODEyNzcwNDFkZxAFDEp1YW4gZGUgRnVjYQUkYjVjOTYyMDItODUxMC00NTMyLWFmYzUtMWE5NWIyNjYyNTFlZxAFDUp1bmlwZXIgQmVhY2gFJDg4MTAzMDU4LTc5MzYtNDhkNC05MDliLTRjNmZlZTBmNWE1YWcQBQpLZWt1bGkgQmF5BSQ0N2RhZTc1MS0wNzdiLTQ5YmYtYTA5NS1mYjkzMWFjMTE5MzRnEAUQS2VudHVja3kgQWxsZXluZQUkNDgxNjkzMjItZDI5Mi00MzBlLThhZTktNTE4ZTZhZjIwNWQyZxAFDEtldHRsZSBSaXZlcgUkZDZlNGE3NjEtYmQ1NC00MmE5LWE1YzgtZjhmZGZkNTM0OTJiZxAFDUtpa29tdW4gQ3JlZWsFJDhjMGQzMzkxLWFiZWMtNGQ2My05OGNmLThjYWVhZWEyZGE3MGcQBQ1LbGVhbnphIENyZWVrBSQzYTM4ZWY2Yi0zMWI0LTQxNmYtYmNiNS03YjRhYzMxZGRkYTVnEAUNS29rYW5lZSBDcmVlawUkODhkMTk3NDAtMzc2Zi00NGIxLWI2YzctMWNlNzFlN2JmYWNjZxAFDUtvb3RlbmF5IExha2UFJDcxYzIwMjFiLTU2MjQtNGM2YS1hZGY5LTE3Y2YzNDBiMTg4NmcQBQxMYWMgTGEgSGFjaGUFJDRiMjE1ZWI2LTNlYzgtNDQzZi04MTBjLTU4MmM3MzBlMWNhMmcQBQxMYWMgTGUgSmV1bmUFJDQwY2U0Y2E2LTc4ZWEtNGI4Mi1iYTM3LTI1ZmZkNjQwY2VlNWcQBQxMYWtlbHNlIExha2UFJGRmYWZlYmM5LWYzMTctNDZmZC1hMzkzLTAyOGY2NWRhY2U5NmcQBRdMaWFyZCBSaXZlciBIb3QgU3ByaW5ncwUkYmZlZmE1NzEtOWY1ZC00NDVjLTk2YjUtNzM3NDUzZGMyOGJiZxAFFUxpdHRsZSBRdWFsaWN1bSBGYWxscwUkZWRmN2QwMTAtZWYxMC00NGU3LWI1NjctZDdmYzkwNWE3NzNkZxAFDExvdmVsYW5kIEJheQUkZDU4NTIxY2ItNzZiNC00NmRlLWI4NTktYWVkYWE4MWNkNDNmZxAFCk1hYmVsIExha2UFJDc0NDZiM2ZkLTU5ZTQtNDEyYy1hNGYyLTA1NTUyYmQzMWY2ZGcQBQxNYXJ0aGEgQ3JlZWsFJDlmMjUxMzUzLWUxM2EtNGVmNS05ZDc2LTgzZjRmOTIzOGE3NGcQBQ5NY0RvbmFsZCBDcmVlawUkYThhZDk2MTUtNjVmMy00MzI5LThhNGQtMWZhY2MxMWY2OWZkZxAFDU1lemlhZGluIExha2UFJDYyYjY4MzRhLTI2YmItNGVmZi05Mjg1LWEzYWM2NjA3ZTQxNGcQBQ1NaXJhY2xlIEJlYWNoBSQ4MTc3OWVmOS02MDJjLTQ3OGMtYWQ5NC1hNTBmNmJlOTA0ZjZnEAUMTW9iZXJseSBMYWtlBSRkZWMyMGZjMC1kODA4LTRmYTEtOGE1NS0zN2FlMjYwMjE3OTJnEAUFTW9uY2sFJGQ4Mjg5NTk0LWU2MzUtNDVmZi1iNmE4LWY4NmNlNDZmYjJkYWcQBRdNb250YWd1ZSBIYXJib3VyIE1hcmluZQUkMDBjMjA0YTktY2U0Zi00YjZhLTk0ZDQtZTNhODZiMzI2MzRlZxAFC01vcnRvbiBMYWtlBSRiNmU2ZWZmNC0xYWU3LTQxZDgtODFjYi05ZWJhZDA5YTI2NWZnEAUMTW91bnQgRmVybmllBSQ4NGYyOWNhMy04NGEwLTQ3NjUtOTI2ZS0yMzI1ZGQ0OTE2OTVnEAUMTW91bnQgUm9ic29uBSQ0YmFiMDUwMC1jMWY5LTQxZjktOWE0NC04OTg0M2E1MjcxNWJnEAUKTW95aWUgTGFrZQUkYTRlMWIwN2YtOTlkNi00MTUzLWFlYmQtZGE0M2I5NDdiMTg4ZxAFC05haXJuIEZhbGxzBSRhZDI3NjUzYS04MjI4LTQzODgtYTAyMy1lMDk3ODgxMjI2YmRnEAUXTmV3Y2FzdGxlIElzbGFuZCBNYXJpbmUFJGY3MzYxMzEwLTJjZWYtNDQ4Mi1hMDVlLWM0ZDMzYmU5MDVlMGcQBRROb3J0aCBUaG9tcHNvbiBSaXZlcgUkYjkwNDllMGYtYzgwMC00MWI0LWFhYTgtODU5MzkxNDRmM2JhZxAFE09rYW5hZ2FuIExha2UgTm9ydGgFJGUzZGY5MzljLTZkZjEtNDIxNS05NmE1LTI2YzFmNDdlNzc4ZWcQBRNPa2FuYWdhbiBMYWtlIFNvdXRoBSRkMTg2MWEwYi1lZjk5LTQ4ZjMtYTgwNy04MDc4ZGJlM2ZmNDNnEAUKT3R0ZXIgTGFrZQUkZDQwMGIyNmEtNzZmNC00NDk0LTgyZDctMTYwOWQwZDlhZDQ0ZxAFDVBhYXJlbnMgQmVhY2gFJDkyNWRjNTcxLWNkMjMtNDlkYy1hOWNmLWQ1NTVkNTkyMzAxM2cQBQlQYXVsIExha2UFJDdlNjNkZmJjLTk0ZmYtNDMyNi1iZGRiLTg0YTQ3NzZiOWRkMGcQBQxQb3Jwb2lzZSBCYXkFJDJhNDQ4MDM4LTA3YjctNGFiOC1iNTk3LWNkOWE1YmJhMjgxZWcQBQxQb3J0ZWF1IENvdmUFJGE0NjRiZDViLTUzYzEtNDIyZC05YTc3LWRhMGJkZWZjYWJlNmcQBQxQcmVtaWVyIExha2UFJGViNGIwNmRhLWE2ZTMtNDM4Zi04YTY4LWYxZjdhM2MzN2UxOGcQBQ5QcnVkaG9tbWUgTGFrZQUkYmU5MjJjYmItYzgzYy00MzU0LTk2ZmMtZWNhZjdkMjlkNGU1ZxAFC1B1cmRlbiBMYWtlBSQwMzEyMDg2Zi03MmUwLTQ3ZTgtOWQ4My1iYmM5ZmY2ODZlNTRnEAUQUmF0aHRyZXZvciBCZWFjaAUkMmJmZWNmYTAtMWU4Ny00NzdmLThkZjYtZDViOTE0ODQwZTg4ZxAFCVJlZCBCbHVmZgUkMmFjNGY0OGUtMTIyZi00OWZjLWE5M2QtMzNhZmY1NDc1MzczZxAFC1JvbGxleSBMYWtlBSRkMjA2M2Q1YS01Yzg1LTRiODktOTJjZC1iMDNlMDZmMjcyNDlnEAUGUnVja2xlBSQ4YmFmMTk4YS02MjU3LTQ3ZWYtYjRhMS03MDg4MDVmNDgwNThnEAULU2FsdGVyeSBCYXkFJDQ4ZmJkZThiLTc4ZTEtNGNjMC1iNjA4LTM5OTI5OGYyY2Q5NWcQBQlTYXNxdWF0Y2gFJDYwZWUxY2VjLTdmY2ItNDY4MS1iYmUyLWMyZGFmOWJkNGE2N2cQBQxTaHVzd2FwIExha2UFJDdlY2EyOTk5LWRjYjMtNDQ2Zi05Yzg5LTIxYmE0YzRhNjkwZWcQBQ1Ta2FnaXQgVmFsbGV5BSQwMzY0M2E4YS03ZGI5LTQ4NjgtOWNjNi1iMzViNGM1ZDU1YTJnEAUJU21lbHQgQmF5BSQ4OTMzZGVlNi1mZjE5LTRjNTctOWYzNy03MDRkMmMzYjA4NzFnEAULU293Y2hlYSBCYXkFJDM1ZjkyNDI1LTk2ZjAtNDY5MC1iZWNmLWJkMzZiMjBhYTY1MWcQBQtTcHJvYXQgTGFrZQUkNTJjMDRiZjctMTQ2Yy00OGIxLWJhYTQtMjIyMTM5MmEzMjc2ZxAFC1N0YW1wIFJpdmVyBSRhZDI0MGJjNC1hYjM5LTQ0NTMtOGE4Zi1hZTUyNmU0NzI4ZDJnEAUKU3RlbXdpbmRlcgUkNThiNmQyZjgtNzZlMi00ZDZjLWFhYjItM2YyY2MxYzA3NjBkZxAFClN0cmF0aGNvbmEFJDVmNDczZGIyLTk0MWYtNGFmZC04NzM0LWI0Y2IxMjNmZDMzOWcQBQtTdW1taXQgTGFrZQUkYjU1OWUyYmYtOGVhYy00ODc1LThmNDAtZjg1M2FkZWRkYTYyZxAFGHN3zJNpd8yTcyAoSGF5bmVzIFBvaW50KQUkNjQyMjQ4MTctMGJiNS00NGU5LWE4Y2QtYmNjYjFlMjliNTFhZxAFJHN4zIzKt8mZeMyMyrduaXRryrcgKE9rYW5hZ2FuIEZhbGxzKQUkYTBhZjgxODctMjU1Ni00YTFkLWEwNDgtZjYyNDExNDE4OTk2ZxAFB1N5cmluZ2EFJDQ1OTc0NmUzLWYyNWItNDEwYS05ODNhLTY4NjE1OTZkNWM1NWcQBQ1UZW4gTWlsZSBMYWtlBSQ3MGExYTI2OS0wZjBjLTQzNTAtYTM0Yi0yYWEwYWY4OGE3ZjNnEAUKVHloZWUgTGFrZQUkNGY4MzBiMTMtZDkxMi00Yjk3LWJlMGYtYzMwOGYzM2U0N2U1ZxAFCVdhc2EgTGFrZQUkYjA4OWRmMGMtYWNjNS00MDg2LTkxMGUtNjkyZjAxZjljNjNmZxAFCldlbGxzIEdyYXkFJDM1Mjc0ZDA2LThlMGQtNDFkNy04MjA3LTg1YTk3NjU3NGE4NWcQBQ5XaGlza2VycyBQb2ludAUkY2U4YWE1ZjgtYjE0Ni00NDY2LTg3ZGEtMjBiMzU1ODU3NGNjZxYBZmQCDA8QDxYCHwUFCkNhbXBncm91bmRkDxYEZgIBAgICAxYEEAUPQWxsIENhbXBncm91bmRzBSQ2NjgwOWIzMi1hMDY5LTRmYWUtOTcwOS03ZTAyZjJiYTgxZmFnEAUYU291dGhlcm4gSW50ZXJpb3IgUmVnaW9uBSRkM2FkNGQ5Mi1lNmVmLTQyOTItODk2Zi05ODYwZWYyZTg0NWVnEAUPTm9ydGhlcm4gUmVnaW9uBSRiYTJlNDdhMS05M2RiLTRmMjItYTUwNC02Mzg1YzM3MzQ5MDhnEAUMQ29hc3QgUmVnaW9uBSRhZmQ2M2QxOS0xMWEwLTQ2ODUtYTAwOS1jYzk1YzQxYzQwYjRnFgECA2QCDQ8WAh8MBUhodHRwczovL3NlY3VyZS5jYW1pcy5jb20vRGlzY292ZXJDYW1waW5nL0ltYWdlcy9Ub29sVGlwSGVscEljb25fQmx1ZS5wbmdkAg4PFgIfDAVIaHR0cHM6Ly9zZWN1cmUuY2FtaXMuY29tL0Rpc2NvdmVyQ2FtcGluZy9JbWFnZXMvVG9vbFRpcEhlbHBJY29uX0JsdWUucG5nZAIPD2QWAmYPFgIfDAVIaHR0cHM6Ly9zZWN1cmUuY2FtaXMuY29tL0Rpc2NvdmVyQ2FtcGluZy9JbWFnZXMvVG9vbFRpcEhlbHBJY29uX0JsdWUucG5nZAIQDxYCHwwFSGh0dHBzOi8vc2VjdXJlLmNhbWlzLmNvbS9EaXNjb3ZlckNhbXBpbmcvSW1hZ2VzL1Rvb2xUaXBIZWxwSWNvbl9CbHVlLnBuZ2QCEQ8WAh8MBUhodHRwczovL3NlY3VyZS5jYW1pcy5jb20vRGlzY292ZXJDYW1waW5nL0ltYWdlcy9Ub29sVGlwSGVscEljb25fQmx1ZS5wbmdkAhIPZBYCZg8WAh8MBUhodHRwczovL3NlY3VyZS5jYW1pcy5jb20vRGlzY292ZXJDYW1waW5nL0ltYWdlcy9Ub29sVGlwSGVscEljb25fQmx1ZS5wbmdkAhMPDxYCHgdWaXNpYmxlaGRkAhQPEA8WAh8OaGRkFgBkAhcPDxYCHwIFClJlc2V0IEZvcm1kZAIZDxYCHw0FBmFjdGl2ZWQCGw8WAh8OaGQCAQ8WAh4EaHJlZgUyaHR0cHM6Ly9zZWN1cmUuY2FtaXMuY29tL0Rpc2NvdmVyQ2FtcGluZy9Ib21lLmFzcHhkAgIPFgIfDwUyaHR0cHM6Ly9zZWN1cmUuY2FtaXMuY29tL0Rpc2NvdmVyQ2FtcGluZy9IZWxwLmFzcHhkAgMPFgIfDwUxaHR0cHM6Ly9zZWN1cmUuY2FtaXMuY29tL0Rpc2NvdmVyQ2FtcGluZy9GQVEuYXNweGQCBA8WAh8PBTZodHRwczovL3NlY3VyZS5jYW1pcy5jb20vRGlzY292ZXJDYW1waW5nL0NvbW1lbnRzLmFzcHhkAgYPFgIfAgXxCzxkaXYgY2xhc3M9ImZvbGxvd1VzIj4NCiAgICAgICAgICAgIDx1bD4NCiAgICAgICAgICAgIDxsaT4gICAgICAgICAgDQoJCSAgICAgICAgPGEgcmVsPSJleHRlcm5hbCIgaWQ9Imxua0ZhY2Vib29rIiBocmVmPSJodHRwczovL3d3dy5mYWNlYm9vay5jb20vWW91ckJDUGFya3MiIG9uY2xpY2s9IlRyYWNrT3V0bGluayh0aGlzKSIgb25jb250ZXh0bWVudT0iVHJhY2tPdXRsaW5rKHRoaXMpIiB0YXJnZXQ9Il9ibGFuayI+DQoJCQkgICAgICA8aW1nIHNyYz0iaHR0cHM6Ly9zZWN1cmUuY2FtaXMuY29tL0Rpc2NvdmVyQ2FtcGluZy9JbWFnZXMvU29jaWFsTWVkaWEvY2lyY2xlLWZhY2Vib29rLnBuZyIgYWx0PSJGYWNlYm9vayI+DQoJCSAgICAgICAgPC9hPiANCgkgICAgICAgICAgPC9saT4NCgkgICAgICAgICAgPGxpPiAgICAgICAgICANCiAgICAgICAgICAgIDxhIHJlbD0iZXh0ZXJuYWwiIGlkPSJsbmtCbG9nIiBocmVmPSJodHRwOi8vZW5nYWdlLmdvdi5iYy5jYS9iY3BhcmtzYmxvZy8iIG9uY2xpY2s9IlRyYWNrT3V0bGluayh0aGlzKSIgb25jb250ZXh0bWVudT0iVHJhY2tPdXRsaW5rKHRoaXMpIiB0YXJnZXQ9Il9ibGFuayI+DQogICAgICAgICAgICA8aW1nIHNyYz0iaHR0cHM6Ly9zZWN1cmUuY2FtaXMuY29tL0Rpc2NvdmVyQ2FtcGluZy9JbWFnZXMvU29jaWFsTWVkaWEvY2lyY2xlLWJsb2cucG5nIiBhbHQ9IkJsb2ciPg0KICAgICAgICAgICAgPC9hPiANCiAgICAgICAgICAgIDwvbGk+DQogICAgICAgICAgICA8bGk+ICAgICAgICAgIA0KICAgICAgICAgICAgPGEgcmVsPSJleHRlcm5hbCIgaWQ9Imxua0luc3RhZ3JhbSIgaHJlZj0iaHR0cDovL3d3dy5pbnN0YWdyYW0uY29tL3lvdXJiY3BhcmtzLyIgb25jbGljaz0iVHJhY2tPdXRsaW5rKHRoaXMpIiBvbmNvbnRleHRtZW51PSJUcmFja091dGxpbmsodGhpcykiIHRhcmdldD0iX2JsYW5rIj4NCiAgICAgICAgICAgIDxpbWcgc3JjPSJodHRwczovL3NlY3VyZS5jYW1pcy5jb20vRGlzY292ZXJDYW1waW5nL0ltYWdlcy9Tb2NpYWxNZWRpYS9jaXJjbGUtaW5zdGFncmFtLnBuZyIgYWx0PSJJbnN0YWdyYW0iPg0KICAgICAgICAgICAgPC9hPiANCiAgICAgICAgICAgIDwvbGk+DQogICAgICAgICAgICA8bGk+ICAgICAgICAgIA0KICAgICAgICAgICAgPGEgcmVsPSJleHRlcm5hbCIgaWQ9Imxua0V2ZW50cyIgaHJlZj0iaHR0cDovL3d3dy5lbnYuZ292LmJjLmNhL2JjcGFya3MvZXZlbnRzL2NhbGVuZGFyLyNldmVudExpc3QiIG9uY2xpY2s9IlRyYWNrT3V0bGluayh0aGlzKSIgb25jb250ZXh0bWVudT0iVHJhY2tPdXRsaW5rKHRoaXMpIiB0YXJnZXQ9Il9ibGFuayI+DQogICAgICAgICAgICA8aW1nIHNyYz0iaHR0cHM6Ly9zZWN1cmUuY2FtaXMuY29tL0Rpc2NvdmVyQ2FtcGluZy9JbWFnZXMvU29jaWFsTWVkaWEvY2lyY2xlLWV2ZW50cy5wbmciIGFsdD0iRXZlbnRzIj4NCiAgICAgICAgICAgIDwvYT4gDQogICAgICAgICAgICA8L2xpPg0KICAgICAgICAgICAgPC91bD4NCiAgICAgICAgICAgIDwvZGl2Pg0KICAgIGQCCA8WAh8CBQgoY2F3ZWI0KWQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgIFHWN0bDAwJExvZ2luVmlldzEkU2lnbkluJGN0bDAxBR1jdGwwMCRMb2dpblZpZXcxJFNpZ25JbiRjdGwwM0/hiAGRylZR5UgE4O26h77QFbfeuChtbGfWmprmCnXT" />
+
+
+<script src="/DiscoverCamping/WebResource.axd?d=Rfm3DZ32RdG-kegUMyBr28dXiqfDMnRgb8Tsq3DlzLo4rzEe4MPCGJEDuv7yx3BdcxY3mtAnnDfg5hUrM75JiykY891uUBc5c80FUDbbQ_U1&amp;t=636280921286603683" type="text/javascript"></script>
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="730E4EA0" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAG+ID7//PlwyA3CkmWDf+mAq549SfoJDIJqQKahsUway3Bz+W9oTDL3hTRaTLE8w348RBDAyt45a/pF+GM3g3kitbLkt1s6ttun+cLx1OiZazzbXJT3jfGgDHH5GAyN5FfHZbs4X5xw74PnGrTKSJhmjcOoKajOv/I77uMO3EVHvwd+HU1daHArWQRArMdxyFB4gR51VPfnf5pv+PUVcoXLeX0ZEvCsIB+TJOXgKmEU7WbLfiMcNfM7WfqW5MT49TkyesA3hTpJIXoT4kofQNkMywS6K/V8TWhiZFrozrZmcB8g45M0dgX93WTu8gBYBMeFwBfCldH5ccLatxOuk/G8EY4pGDgjaleKC3y13lOHhKoerwzclRW2cQX56RCSE/mExrlSkh+FvpTwqCQlcCmUbrHQbG339e6/cLEO7eyQgUM2RVNv+M9JOdsqQpp5JmP2P0h0cWsn5KN2tvToQihFMyXJ5OLYqD8oP5aCdPa5cCZx98QuSR/LDj3N6f70hmLCdcgtW96e83x44FDOAWLn5xeiTRPAPM3tIY3Ws/G6zXgpZcgEihaESUGHMCFI03/3O4Dm3Fyn4iLNlQQeoClbbwRTxG0E9o5wOdatsmQZJu61shgoo6ybIHXVGVfxqZtuAoC5b2d6US95utNfFv1corp3lBsY5UzZhvr9kcvWW3BD4TbudR8x0PQt/4NnlNxj8iiXyzn05lfLnknZ2qnPjp3qlpiy8IpvdVVC63H5mCPoSMlgZlI2GwCnoSw7oMV0oSRJrzwmsSpm31RMZJs8IgLZDFjjF2ZHjKp3qeWWd6sLR7S3QuBdbLD5OtWyAWQDha8oOe/WiivJnNfPFgxcmMTWrmDUBFfoAUPG2u8Vgq9jzG/3DMH+lNV59xvod89+Ctj5+sfadjl56Pnh21JvUdgFue+nRuotk8pZLDpMWL5PMWKSLaU4OGcCwRE9CINDGNZEGr05EZn8UqXumvkl/gxjaAS+6XJMNnh+NcQ4FLg+komHCVpz8mor1cEkMGZaxJZbJNXSizAbbfOuErsNwpNJkZvci018RoD0hrbAZLgyFl48hLs/nPEt+xju/s6jIHZWsEF0CdWo0Sb0TV1+a+rKZ3gUoIcPfjOLOr7Dr/aeMi/DosWKRL27dokYt3RqnMYUaKMUBbmCP3QHwvufjxJcOLwyrl8IUeZDbttJAJjAIUE7lRXzlhSBxdxAb5o77NXikDOPMXrZkVlWae8s1ltKWzbO9X9FNNyeXLLwN1Zl4gq0qMkOacGIsxrdBOi9J2fwbs2vex7ldjAKXE7ROGy/OTpQdyYDYoO4ZbOA8+fH++pLiHuyyIGPMV9a/cto5fn8cg3NaoSfrAbmcnUreW+YJY9zfbIRBLc8aA3Lzotr1TXw4sSlRfSHf2lxXdFeYKoXUsChoRhww7MJkUpVMjOajVWXJeHuN6Ji20SZCIeL0kvhT3Bj5X9521tQgHtPk2J19XMfLYKODPj46DLvFYHex76nNdbPh0eNNeOR2Tro803TPVSnu/oZkwFRs2r1d9xIt5xXt2L0Qg9BYkANUNP68qLXIdv+9BRe+dPRfS0DYJfzmLE5Ef+lCNFgADxWR7yLQf+HnvkcBhOP6jhFQB/NEVeFJUvd6vwAzDem+poIGuv1kia4ZSfwOq7Rbjv7zSBtc2tHTRWGxBruwabXhyY4uRcCYhpf2ckSpg7sF7zwnrmdGc2Y+Z2n9PxzUndcDcTryH6wu+A+jFaFFz21lMTje+w0o2BzaGgOK2I4ssL8Bv6CJsMCvcEXzITVVBB6axbIuoLzD8Sun6NwneGKI2LotN+cSEEcZaK0DHrHgDENjvewj4RuF57rMxgHQH+N+utfeSIGSflLoGCpcL3EThfY4cj53yjKu0ii4zIkA3YpvG7wdtkdSXJNtxij4AkiSs/C1dA7UlelSvg8JLSLye9quDa997gx1J1qGkoQ8NzhHVX2JsIkAi85++NEUDasNqG1iHpmvpBT0HdakaM+x/cG2kgqIsLWkYNFtpevOU7kyDMrEJegeiApyhLp7kEviBdTHdP6Jd81zPcXm9S2bpF13YjTfXnLNQajLz66Ln/3UlwoENVcNOZtKPZaOkuJG2BlDrHwlqK3UpWISmslWZ+NVzUkQHAu+vy1VJObROO5bfQdS6eQY6KeK/KXDNGwHomFSTU576z4bQ4xDB8p5AmmK2DBLr5w/Pfm6t/+0yDwEJHcM3nQGwCxKRhk/DdbhH0kR/KO2x5hmHtgiSKqEZjuZ168eZrg2QkPJBylUWY7BNp5XnsGac3FjIDHogYwhcFNGCLZnzk8C4z8OB6fOkMasAVYov8kLbvvwUkveoRHNrJzPHsDDPQZ2CR/9saK2/Ql6uhmE8Tlwx0c+jeSnS0YJozfYRqzAZu4ZjvohWA==" />     
+        
+  
+            
+            <!-- To disable Optimizations, bundling and minification set debug=true in the system.web/compilation section of web.config -->
+            <script src="/DiscoverCamping/bundles/jquerycore?v=HFnr7Bv3sm1H7Dcq9CRFqkQQNe5buYMJhdIeTVq2c9Y1"></script>
+<script src="/DiscoverCamping/bundles/jquerymig?v=j31sfFtBt-7fsm9fEco4tWwFrmMsyEocgMaQEok1n2k1"></script>
+<script src="/DiscoverCamping/bundles/core?v=K03ML-6Lmkq3-upCg1fEvQP9uLmtkJSifHG2paIAiZc1"></script>
+
+
+        <div id="container">
+
+            <div class="head" id="mainHeader">
+            
+                
+                
+                <!-- Image Link to Organization Home Page-->                                 
+                <a id="OrgHomeLink" title="Organization Home Page" href="http://www.env.gov.bc.ca/bcparks" target="_blank"><img id="OrgLogo" src="https://secure.camis.com/DiscoverCamping/Images/header_logo.png" alt="Return To Organization Home Page" /></a>
+                
+                              
+            </div>       
+         
+            
+            <div id="mainNav">
+	
+                 <!-- Site Menu -->
+                <div id="menuNav">                                                                                                  
+                       
+                       <div id="NavMenu">
+                            <a href="#mainMenu_SkipLink"><img alt="Skip Menu" src="/DiscoverCamping/WebResource.axd?d=bh1P_BHkb5RpbibHfIm8o6xHTkyeaFmCaFLHIRicOzheio-n6v53Jnrq6gsmuW2FZdEd_jiRBkddmZ1CGOzSKgVeC8RVeH80byng4PD-Jg41&amp;t=636280921286603683" width="0" height="0" border="0" /></a><div id="mainMenu">
+		<ul class="level1">
+			<li><a title="Return to Home Page" class="level1" href="/DiscoverCamping/Home.aspx">Home</a></li><li><a title="Browse Maps" class="level1" href="/DiscoverCamping/BrowseMaps">Browse Maps</a></li><li><a title="View, Change or Cancel Reservations" class="level1" href="/DiscoverCamping/Account/Default.aspx">My Reservations</a></li><li><a title="Information Topics" class="level1">Information</a><ul class="level2">
+				<li><a title="Read details on Reservation Service" class="level2" href="/DiscoverCamping/ReservationService.aspx">Reservation Service</a></li><li><a title="Reservation Policies" class="level2" href="http://www.env.gov.bc.ca/bcparks/reserve">Reservation Policies</a></li><li><a title="Group Policies" class="level2" href="http://www.env.gov.bc.ca/bcparks/reserve/group.html">Group Policies</a></li><li><a title="Read details on our privacy policies" class="level2" href="http://www.gov.bc.ca/com/privacy.html">Privacy Policies</a></li><li><a title="Read details on browser requirements for this site" class="level2" href="/DiscoverCamping/Browsers.aspx">Browser Information</a></li><li><a title="Read details on how security is handled at this site" class="level2" href="/DiscoverCamping/Security.aspx">Security Information</a></li>
+			</ul></li><li><a title="Help Topics" class="level1">Help</a><ul class="level2">
+				<li><a title="Get help using this service" class="level2" href="/DiscoverCamping/Help.aspx">Help Topics</a></li><li><a title="Frequently Asked Questions" class="level2" href="/DiscoverCamping/Faq.aspx">FAQ</a></li><li><a title="Submit comments on this service" class="level2" href="/DiscoverCamping/Comments.aspx">Comments</a></li>
+			</ul></li>
+		</ul>
+	</div><a id="mainMenu_SkipLink"></a>                                                                                         
+                        </div>                   
+                            
+
+                      <div id="SystemTimePopupWindow">                              
+                            <a id="lnkSystemTime" onclick="ShowSystemTime();" tabindex="0" title="System time opens in new window">System Time</a>                    
+                            <div id="clockPanel">
+                                <div id="clock">                                                            
+                                </div>             
+                            </div>
+                       </div>                       
+                       
+                       <div id="systemTimeHelp" class="info paddingTop02" tabindex="0">
+                            <span>You can view the current system time by opening the clock in a separate window. You can then keep this window open as you browse the rest of the site.</span>
+                            <img src="https://secure.camis.com/DiscoverCamping/Images/ToolTipHelpIcon_Blue.png" id="imgSystemTimeHelp" style="border: none;" class="image-actual toolTip" alt="System time help button image" />
+                       </div>             
+                </div>                               
+                <div class="clear"></div>
+                <!-- Bread Crumbs etc...-->
+                <div id="headerLinks">          
+                    <div id="viewPortStatus">Processing.....</div>          
+                    <ul id="headerLinks2">                              
+                       
+                                  
+                                <li><a id="SignIn" href="javascript:__doPostBack(&#39;ctl00$LoginView1$SignIn$ctl02&#39;,&#39;&#39;)">Sign In </a></li>                                                                                      
+                            
+                       
+                    
+                        <li id="sectionViewCartLink">
+                              <a id="lnkCartItems" class="paddingLeftRight" href="https://secure.camis.com/DiscoverCamping/ViewCart.aspx">Cart (Empty)</a>
+                        </li>                       
+                                       
+                   </ul>      
+                   <div id="sectionLanguage">
+                                           
+                   </div>              
+                   	   		    
+                </div>
+           
+</div>                                     
+          
+            <div id="dialogSwitchToMobile">
+              A mobile version of this website is available. Would you like to go to the mobile site?
+            </div>
+
+           <div  id="content">
+                
+
+    
+
+    <noscript class="warning">
+        <p>
+            WARNING: The website will not work with javascript disabled!
+        </p>
+    </noscript>    
+
+                    
+          <script src="/DiscoverCamping/bundles/browsemaps?v=SMofwxJtWEvim1Evqz8dTzg3uX1dWtzw-nRE-K1w1Dk1" type="text/javascript"></script>             
+    
+
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function () {       
+            $.MapViewer(0, 0, 0.1, 'False');
+            $('#siteAvailabilityTable').fixedHeaderTable({ altClass: 'odd', fixedColumns: 1, themeClass: 'fht-default'  });       
+            UpdateAvailabilityCalendarImages();
+        });         
+        
+
+    </script>
+
+    <h1 class="hidden">Browse Maps</h1>
+    
+    <div id="leftContent">
+        
+
+        <div class="section">
+            
+            <div>
+                <div id="sectionFindASiteHelp" class="info" tabindex="0">
+                    <span>When you update your selections for reservation type, dates, parks, campgrounds or site requirements, the availability listing updates automatically.</span>
+                    <img src="https://secure.camis.com/DiscoverCamping/Images/ToolTipHelpIcon_Blue.png" id="MainContentPlaceHolder_imgFindASiteHelp" style="border: none;" title="" class="toolTip" alt="Find Sites Help Button" />
+                </div>
+                <h1 class="sectionHeader">
+                    Find A Site
+                </h1>
+            </div>
+            
+            <div class="steps">
+            <div class="sectionSubHeader">               
+                <span class="number"> <img alt="1" style="border: none;" src="Images/step_1.png"/></span>
+                <span>Pick your reservation type:</span>
+            </div>
+            
+            <div class="sectionContent">
+                 <div id="resType">
+                    <div class="info" tabindex="0">
+                        <span>Some rules are dependent on the type of site you want to reserve. To speed up your search, select the type of site you are looking for.</span>
+                        <img src="https://secure.camis.com/DiscoverCamping/Images/ToolTipHelpIcon_Blue.png" id="MainContentPlaceHolder_imgResTypeHelp" style="border: none;" title="" class="toolTip" alt="Reservation Type Help Button" />
+                    </div>    
+
+                    <label id="MainContentPlaceHolder_lblReservationType" for="selResType" class="bold">Reservation Type:</label>                            
+                    
+                     <select name="selResType" id="selResType" onchange="resType_Change();">
+                      <option></option>
+                     </select>
+
+                     <div id="resTypeMessagePanel">                        
+                    </div>     
+                     
+                    <div id="noMatchingResourcesMessage"></div>
+                        </div>
+                    </div>                                                            
+                </div>
+            </div>
+            
+            <div class="steps">
+
+            <div class="sectionSubHeader">             
+
+                 <div class="info" id="sectionDateHelp" tabindex="0">
+	                        <span id="dateHelpText"></span>
+	                        <img src="https://secure.camis.com/DiscoverCamping/Images/ToolTipHelpIcon_Blue.png" id="MainContentPlaceHolder_imgQuickDateHelp" style="border: none;" title="" class="toolTip" alt="Quick Dates Help Button" />
+	             </div> 
+                <span class="number"> <img alt="2" style="border: none;" src="Images/step_2.png"/></span>
+                <span> Pick your arrival date:</span>               
+            </div>
+	        
+            <div class="sectionContent">                    
+
+             <div id="dateSection">
+                 <div class="info" id="sectionDateArrivalHelp" tabindex="0">
+                     <span id="arrivalDateHelpText"></span>
+                     <img src="https://secure.camis.com/DiscoverCamping/Images/ToolTipHelpIcon_Blue.png" id="MainContentPlaceHolder_imgArrivalDateHelp" style="border: none;" title="" class="toolTip" alt="Arrival Dates Help Button" />
+                 </div>
+
+                 
+	                <div id="quickDate">                   
+	                    <label for="MainContentPlaceHolder_QuickDateList" id="MainContentPlaceHolder_lblQuickDate" class="bold">Quick Date:</label><select name="ctl00$MainContentPlaceHolder$QuickDateList" id="MainContentPlaceHolder_QuickDateList" onchange="QuickDateList_OnChange(this)">
+	<option selected="selected" value="">--Select Date--</option>
+	<option value="2017, 5, 30|3">Fri, Jun 30 - Mon, Jul 03</option>
+	<option value="2017, 6, 7|2">Fri, Jul 07 - Sun, Jul 09</option>
+	<option value="2017, 7, 4|3">Fri, Aug 04 - Mon, Aug 07</option>
+	<option value="2017, 8, 1|3">Fri, Sep 01 - Mon, Sep 04</option>
+	<option value="2017, 9, 6|3">Fri, Oct 06 - Mon, Oct 09</option>
+	<option value="2017, 9, 20|2">Fri, Oct 20 - Sun, Oct 22</option>
+
+</select>
+	                   
+	                </div>
+	            
+	            
+                <div id="arrivalDateSection">
+                        <label id="arrivalDateLabel" for="txtArrDateHidden" class="bold">Arrival Date:</label>
+                    <input id="txtArrDateHidden" name="txtArrDateHidden" type="hidden" />                    
+                    
+                    <select name="selArrMth" id="selArrMth" onchange="SelectArrMth();" title="Arrival Month">
+                    <option></option>
+                    </select>                    
+                   
+                    <select name="selArrDay" id="selArrDay" onchange="SelectArrDay();" title="Arrival Day">
+                    <option></option>
+                    </select>
+                    
+                   
+                    <input type="text" id="txtArrivalCalendarDisabledStartDate" name="txtArrivalCalendarDisabledStartDate" class="hidden" /> 
+                    <input type="text" id="txtArrivalCalendarDisabledEndDate" name="txtArrivalCalendarDisabledEndDate" class="hidden"/>                                      
+                    <span id="viewerArrivalDatePopupCalendar">
+                         <input type="text" id="viewerArrivalDatePicker" style="display:none;position: relative; z-index: 100000" />                                                      
+                    </span>
+                            
+                </div>                
+              
+                <div id="nightsSection" class="form-inline">
+                    <label id="numNightsLabel" for="selNumNights" class="bold">Nights:</label>
+                    <select id="selNumNights" name="selNumNights" onchange="SelectNumNights();">
+                    <option></option>
+                    </select>
+                </div>
+
+                <div id="depDateSepLabel"></div>
+
+                <div id="departureDateSection">
+                        <label id="depDateLabel" for="txtDepDateHidden" class="bold">Dep.  Date:</label>&nbsp;&nbsp;&nbsp;
+                    <input id="txtDepDateHidden" name="txtDepDateHidden" type="hidden" />                    
+                    
+                    <select name="selDepMth" id="selDepMth" onchange="SelectDepMth();" title="Departure Month">
+                    <option></option>
+                    </select>                    
+                   
+                    <select name="selDepDay" id="selDepDay" onchange="SelectDepDay();" title="Departure Day">
+                    <option></option>
+                    </select>
+                    
+                    <input type="text" id="txtDepCalendarDisabledStartDate" name="txtDepCalendarDisabledStartDate" class="hidden" /> 
+                    <input type="text" id="txtDepCalendarDisabledEndDate" name="txtDepCalendarDisabledEndDate" class="hidden" />                     
+                    
+                    <span id="viewerDepartureDatePopupCalendar">
+                             <input type="text" id="viewerDepartureDatePicker" style="display:none;position: relative; z-index: 100000"  />                                                      
+                    </span>
+                </div>
+                
+                <div id="fullArrivalDate"></div>
+                <div id="fullDepartureDate"></div>
+                <div id="datesNotSelected" class="focus"></div>
+              </div> 
+               <div id="noReservationDatesMessage"></div>
+               <div id="sectionGroupHoldReservation">
+                     <div class="info focus" tabindex="0">
+                        <span>When this box is selected you are completing a reservation as part of a Group Hold and will only be shown availability for sites within the hold and limited to the reservation type and location chosen for the Group Hold. To create a reservation that is not associated with the Group Hold deselect the check box.</span>
+                        <img src="https://secure.camis.com/DiscoverCamping/Images/ToolTipHelpIcon_Blue.png" id="MainContentPlaceHolder_imgGroupHoldReservationHelp" style="border: none;" title="" class="toolTip" alt="Group Hold Reservation Help Icon" />
+                    </div> 
+                   <div id="sectionGroupHoldSelection"></div>
+               </div>
+               <div id="sectionSwitchDisplayMode">
+                   <div id="MainContentPlaceHolder_sectionSwitchDisplayModeHelpText" class="info" tabindex="0">
+                        <span>If you can't find a site for your whole stay, you can use the 'Build My Stay' option to select a site for each night of your stay.</span>
+                        <img src="https://secure.camis.com/DiscoverCamping/Images/ToolTipHelpIcon_Blue.png" id="MainContentPlaceHolder_imgSwitchDisplayModeHelp" style="border: none;" title="" class="toolTip" alt="Switch To Itinerary Mode Help Button" />
+                    </div> 
+                    <div id="switchDisplayMode" class="focus"></div>   
+                    <div id="buildMyStayMessage" class="focus"></div>                                   
+               </div>               
+            </div>
+            </div>
+
+
+            <div class="steps">
+            <div class="sectionSubHeader">        
+                            
+                <span class="number"> <img alt="3" style="border: none;" src="Images/step_3.png"/></span>
+                <span>Pick your park and/or campground:</span>
+            </div>
+	        
+            <div class="sectionContent">
+                
+                <div id="locationListSection">                   
+                    <select name="ctl00$MainContentPlaceHolder$LocationList" id="MainContentPlaceHolder_LocationList" title="Location">
+	<option selected="selected" value="b33acdf9-0151-4f1f-8591-7ecef5c3dda4">British Columbia Parks</option>
+	<option value="7332a3dd-a271-4442-a8d4-3a2cbd824115">Alice Lake</option>
+	<option value="322a8024-7b10-4af9-8b49-2f2a65d162ed">Bamberton</option>
+	<option value="45747c50-5e67-40db-996b-ccf7fee50e5d">Bear Creek</option>
+	<option value="0fa1488a-c2f3-45d9-87ec-a2106c3cb49e">Beatton</option>
+	<option value="d98db186-dbef-455e-a8be-b12655be432d">Beaumont</option>
+	<option value="3d171848-cd43-45c9-9df0-c3e6720faeee">Big Bar Lake</option>
+	<option value="e4c70612-7419-488f-b8f8-f11e8caaaf43">Birkenhead Lake</option>
+	<option value="31b5688b-113d-4090-a8ba-832c5d815bd5">Blanket Creek</option>
+	<option value="83414fa8-a0ae-4f85-8831-659b3e0120eb">Bowron Lake</option>
+	<option value="d312f974-5975-4cd6-8d53-e2bdcd75c286">Bromley Rock</option>
+	<option value="f7510c64-a410-4265-bd2b-e345123b26a0">Carp Lake Island</option>
+	<option value="bdbcbd97-7b6a-425a-9a6f-809f6199ae0c">Champion Lakes</option>
+	<option value="a1b71481-b466-44fe-ab8b-006585b2b8e7">Charlie Lake</option>
+	<option value="2898e81d-0dc9-46f9-b297-56a987ff1a7c">Chilliwack Lake</option>
+	<option value="f665a1a0-574d-4be5-882d-5592a0f40648">Cowichan River</option>
+	<option value="fb7b4092-6b45-4c83-ac2c-059bfa413c42">Crooked River</option>
+	<option value="872eef9a-fcce-4fb8-a36e-aa8b7eabafbf">Cultus Lake</option>
+	<option value="52e13209-439b-470a-9d1f-de68ef0f5a2f">Dry Gulch</option>
+	<option value="f5326c10-4378-4827-9d03-49a6822c1c86">E. C. Manning</option>
+	<option value="c014b403-ca58-4a09-87dc-5862a64a5deb">Elk Falls</option>
+	<option value="247a81cb-2999-4c69-b030-2d7f7eb2e1ee">Ellison</option>
+	<option value="5ffd0412-5c01-4867-8c21-07005eec67ca">Englishman River Falls</option>
+	<option value="f6c4dda6-0bb6-4775-beb1-07f899554390">Fillongley</option>
+	<option value="b844cce2-e355-4de0-9814-ba23459f15b3">Fintry</option>
+	<option value="18e3ba20-3ac7-494c-9262-ac97565fc80b">French Beach</option>
+	<option value="16f74873-b268-4fd9-9c53-a9a02a76171b">Gladstone</option>
+	<option value="9f51856e-0c99-4d48-a9f5-4da522748a69">Golden Ears</option>
+	<option value="347bee13-d956-4ff2-b8f0-54287a8dca00">Goldstream</option>
+	<option value="25a4006b-4292-4b4d-b1e7-7becc4a4208a">Gordon Bay</option>
+	<option value="0d49e388-3334-4550-ac98-efcb9385369c">Green Lake</option>
+	<option value="89f16ee9-e86b-40f6-bd28-003fc808b649">Herald</option>
+	<option value="ca8377f2-28c3-4750-a187-64a7d08f31c4">Horsefly Lake</option>
+	<option value="6ba0b07b-0877-4bf5-b203-85081277041d">Inland Lake</option>
+	<option value="b5c96202-8510-4532-afc5-1a95b266251e">Juan de Fuca</option>
+	<option value="88103058-7936-48d4-909b-4c6fee0f5a5a">Juniper Beach</option>
+	<option value="47dae751-077b-49bf-a095-fb931ac11934">Kekuli Bay</option>
+	<option value="48169322-d292-430e-8ae9-518e6af205d2">Kentucky Alleyne</option>
+	<option value="d6e4a761-bd54-42a9-a5c8-f8fdfd53492b">Kettle River</option>
+	<option value="8c0d3391-abec-4d63-98cf-8caeaea2da70">Kikomun Creek</option>
+	<option value="3a38ef6b-31b4-416f-bcb5-7b4ac31ddda5">Kleanza Creek</option>
+	<option value="88d19740-376f-44b1-b6c7-1ce71e7bfacc">Kokanee Creek</option>
+	<option value="71c2021b-5624-4c6a-adf9-17cf340b1886">Kootenay Lake</option>
+	<option value="4b215eb6-3ec8-443f-810c-582c730e1ca2">Lac La Hache</option>
+	<option value="40ce4ca6-78ea-4b82-ba37-25ffd640cee5">Lac Le Jeune</option>
+	<option value="dfafebc9-f317-46fd-a393-028f65dace96">Lakelse Lake</option>
+	<option value="bfefa571-9f5d-445c-96b5-737453dc28bb">Liard River Hot Springs</option>
+	<option value="edf7d010-ef10-44e7-b567-d7fc905a773d">Little Qualicum Falls</option>
+	<option value="d58521cb-76b4-46de-b859-aedaa81cd43f">Loveland Bay</option>
+	<option value="7446b3fd-59e4-412c-a4f2-05552bd31f6d">Mabel Lake</option>
+	<option value="9f251353-e13a-4ef5-9d76-83f4f9238a74">Martha Creek</option>
+	<option value="a8ad9615-65f3-4329-8a4d-1facc11f69fd">McDonald Creek</option>
+	<option value="62b6834a-26bb-4eff-9285-a3ac6607e414">Meziadin Lake</option>
+	<option value="81779ef9-602c-478c-ad94-a50f6be904f6">Miracle Beach</option>
+	<option value="dec20fc0-d808-4fa1-8a55-37ae26021792">Moberly Lake</option>
+	<option value="d8289594-e635-45ff-b6a8-f86ce46fb2da">Monck</option>
+	<option value="00c204a9-ce4f-4b6a-94d4-e3a86b32634e">Montague Harbour Marine</option>
+	<option value="b6e6eff4-1ae7-41d8-81cb-9ebad09a265f">Morton Lake</option>
+	<option value="84f29ca3-84a0-4765-926e-2325dd491695">Mount Fernie</option>
+	<option value="4bab0500-c1f9-41f9-9a44-89843a52715b">Mount Robson</option>
+	<option value="a4e1b07f-99d6-4153-aebd-da43b947b188">Moyie Lake</option>
+	<option value="ad27653a-8228-4388-a023-e097881226bd">Nairn Falls</option>
+	<option value="f7361310-2cef-4482-a05e-c4d33be905e0">Newcastle Island Marine</option>
+	<option value="b9049e0f-c800-41b4-aaa8-85939144f3ba">North Thompson River</option>
+	<option value="e3df939c-6df1-4215-96a5-26c1f47e778e">Okanagan Lake North</option>
+	<option value="d1861a0b-ef99-48f3-a807-8078dbe3ff43">Okanagan Lake South</option>
+	<option value="d400b26a-76f4-4494-82d7-1609d0d9ad44">Otter Lake</option>
+	<option value="925dc571-cd23-49dc-a9cf-d555d5923013">Paarens Beach</option>
+	<option value="7e63dfbc-94ff-4326-bddb-84a4776b9dd0">Paul Lake</option>
+	<option value="2a448038-07b7-4ab8-b597-cd9a5bba281e">Porpoise Bay</option>
+	<option value="a464bd5b-53c1-422d-9a77-da0bdefcabe6">Porteau Cove</option>
+	<option value="eb4b06da-a6e3-438f-8a68-f1f7a3c37e18">Premier Lake</option>
+	<option value="be922cbb-c83c-4354-96fc-ecaf7d29d4e5">Prudhomme Lake</option>
+	<option value="0312086f-72e0-47e8-9d83-bbc9ff686e54">Purden Lake</option>
+	<option value="2bfecfa0-1e87-477f-8df6-d5b914840e88">Rathtrevor Beach</option>
+	<option value="2ac4f48e-122f-49fc-a93d-33aff5475373">Red Bluff</option>
+	<option value="d2063d5a-5c85-4b89-92cd-b03e06f27249">Rolley Lake</option>
+	<option value="8baf198a-6257-47ef-b4a1-708805f48058">Ruckle</option>
+	<option value="48fbde8b-78e1-4cc0-b608-399298f2cd95">Saltery Bay</option>
+	<option value="60ee1cec-7fcb-4681-bbe2-c2daf9bd4a67">Sasquatch</option>
+	<option value="7eca2999-dcb3-446f-9c89-21ba4c4a690e">Shuswap Lake</option>
+	<option value="03643a8a-7db9-4868-9cc6-b35b4c5d55a2">Skagit Valley</option>
+	<option value="8933dee6-ff19-4c57-9f37-704d2c3b0871">Smelt Bay</option>
+	<option value="35f92425-96f0-4690-becf-bd36b20aa651">Sowchea Bay</option>
+	<option value="52c04bf7-146c-48b1-baa4-2221392a3276">Sproat Lake</option>
+	<option value="ad240bc4-ab39-4453-8a8f-ae526e4728d2">Stamp River</option>
+	<option value="58b6d2f8-76e2-4d6c-aab2-3f2cc1c0760d">Stemwinder</option>
+	<option value="5f473db2-941f-4afd-8734-b4cb123fd339">Strathcona</option>
+	<option value="b559e2bf-8eac-4875-8f40-f853adedda62">Summit Lake</option>
+	<option value="64224817-0bb5-44e9-a8cd-bccb1e29b51a">sw̓iw̓s (Haynes Point)</option>
+	<option value="a0af8187-2556-4a1d-a048-f62411418996">sx̌ʷəx̌ʷnitkʷ (Okanagan Falls)</option>
+	<option value="459746e3-f25b-410a-983a-6861596d5c55">Syringa</option>
+	<option value="70a1a269-0f0c-4350-a34b-2aa0af88a7f3">Ten Mile Lake</option>
+	<option value="4f830b13-d912-4b97-be0f-c308f33e47e5">Tyhee Lake</option>
+	<option value="b089df0c-acc5-4086-910e-692f01f9c63f">Wasa Lake</option>
+	<option value="35274d06-8e0d-41d7-8207-85a976574a85">Wells Gray</option>
+	<option value="ce8aa5f8-b146-4466-87da-20b3558574cc">Whiskers Point</option>
+
+</select>                   
+                    <span id="locStatusMsg" class="messagesandevents" style="display: none;"></span>                              
+                </div>
+                <div id="mapListSection">                   
+                    <select name="ctl00$MainContentPlaceHolder$MapList" id="MainContentPlaceHolder_MapList" title="Campground">
+	<option value="66809b32-a069-4fae-9709-7e02f2ba81fa">All Campgrounds</option>
+	<option value="d3ad4d92-e6ef-4292-896f-9860ef2e845e">Southern Interior Region</option>
+	<option value="ba2e47a1-93db-4f22-a504-6385c3734908">Northern Region</option>
+	<option selected="selected" value="afd63d19-11a0-4685-a009-cc95c41c40b4">Coast Region</option>
+
+</select>
+                </div>
+                 <span id="reservationWindowMessage" class="message warning" style="display: none;"></span>    
+                 <span id="importantInformationLink" class="bold"></span>
+                 <div id="sectionImportantInformation" class="hidden"></div>
+            </div>
+            </div>
+	        
+
+            <div id="siteRequirements" class="steps">
+            <div class="sectionSubHeader">               
+                <span class="number"> <img alt="4" style="border: none;" src="Images/step_4.png"/></span>
+                <span>Pick your site requirements:</span>
+            </div>
+	        
+            <div class="sectionContent">                                           
+              
+                <div id="filteredErrorMessages"></div>
+                <div id="equipItem">
+                     <div class="info focus" tabindex="0">
+                        <span>Selecting an equipment size will limit the available sites to ones that can accommodate your selected equipment.</span>
+                        <img src="https://secure.camis.com/DiscoverCamping/Images/ToolTipHelpIcon_Blue.png" id="MainContentPlaceHolder_imgEquipmentHelp" style="border: none;" title="" class="toolTip" alt="Equipment Help Button" />
+                    </div>   
+                    
+                    <div id="equipment">
+                       <label id="equipLabel" for="selEquipment" class="bold">Equipment:</label>                                                                                                              
+                    
+                        <select name="selEquipment" id="selEquipment" onchange="UpdateResInfo();">
+                        <option></option>
+                        </select>                                        
+                    </div>
+
+                     <div id="equipmentSub">
+                       <label id="equipSubLabel" for="selEquipmentSub" class="bold">Equipment:</label>                                                                                                              
+                    
+                        <select name="selEquipmentSub" id="selEquipmentSub" onchange="UpdateResInfo();">
+                        <option></option>
+                        </select>                                        
+                    </div>
+                      
+                </div>
+                
+                <div id="partySize">            
+                    <div id="partySizeHelp">
+                        <div class="info focus" tabindex="0">
+                                <span id="partySizeHelpHint"></span>
+                                <img src="https://secure.camis.com/DiscoverCamping/Images/ToolTipHelpIcon_Blue.png" id="MainContentPlaceHolder_imgPartySizeHelp" style="border: none;" class="toolTip" alt="Party Size Help Button" />
+                        </div>   
+                    </div>        
+                    
+                    <label id="partysizeLabel" for="selPartySize" class="bold">Party Size:</label>
+                    <div id="singleCat">                                       
+                        <select name="selPartySize" id="selPartySize" onchange="UpdateResInfo();">
+                        <option></option>
+                        </select>
+                        <div id="maximumPartySizeMessage" class="red"></div>
+                    </div>
+                    
+                    <!-- No Party size selection for BC. Selection will be at Step 4. Just display a message in the viewer page -->
+                    <div id="partySizeMessage">                                                
+                    </div>
+                </div>   
+                
+                 <div id="swimmingClassLevel">                  
+                    
+                    <label id="classlevelLabel" for="selSwimmingClassLevel" class="bold">Class Level:</label>&nbsp;                                                                                                                 
+                    
+                    <select name="selSwimmingClassLevel" id="selSwimmingClassLevel" onchange="selClassLevel_OnChange();">
+                    <option></option>
+                    </select>                                                     
+                </div>                                  
+              
+
+                <div id="swimmingTime">                      
+                    
+                   <label id="swimmingTimeLabel" for="selSwimmingTime" class="bold">Time:</label>&nbsp;                                                                                                              
+                   
+                    <select name="selSwimmingTime" id="selSwimmingTime" onchange="UpdateResInfo();" >
+                    <option></option>
+                    </select>        
+                </div>                              
+                
+                <div id="tentPads">                      
+                    
+                     <div id="tentPadHelp">
+                        <div class="info focus" tabindex="0">
+                                <span id="tentPadHelpMessage"></span>
+                                <img src="https://secure.camis.com/DiscoverCamping/Images/ToolTipHelpIcon_Blue.png" id="MainContentPlaceHolder_imgTentPadHelp" style="border: none;" class="toolTip" alt="Tent Pad Help Button" />
+                        </div>   
+                    </div>      
+
+                    <div id="tentPadOptions">
+                        <label id="labelTentPads" for="selTentPads" class="bold">Tent Pads:</label>                                                                                                                 
+                    
+                        <select name="selTentPads" id="selTentPads" onchange="UpdateResInfo();">
+                        <option></option>
+                        </select>     
+                    </div>                     
+                      
+                </div>  
+    
+
+                <div class="boatDetails">       
+                     <div id="boatLength">
+                        <label id="boatLengthLabel" for="selBoatLength" class="bold">Boat Length:</label>
+                         <select name="selBoatLength" id="selBoatLength" onchange="UpdateResInfo();">
+                         <option></option>
+                        </select>
+                    </div>   
+
+                    <div id="boatDraft">
+                        <label id="boatDraftLabel" for="selBoatDraft" class="bold">Boat Draft:</label>
+                         <select name="selBoatDraft" id="selBoatDraft" onchange="UpdateResInfo();">
+                         <option></option>
+                        </select>
+                    </div>   
+
+                    <div id="boatWidth">
+                        <label id="boatWidthLabel" for="selBoatWidth" class="bold">Boat Width:</label>
+                         <select name="selBoatWidth" id="selBoatWidth" onchange="UpdateResInfo();">
+                         <option></option>
+                        </select>
+                    </div>   
+                </div>
+                
+                
+                <div id="SearchPreferences">
+                    <div class="info focus" tabindex="0">
+                         <span>You can further refine your search by selecting items to be included or excluded from the results. The options below do not exist in every campground.</span>
+                         <img src="https://secure.camis.com/DiscoverCamping/Images/ToolTipHelpIcon_Blue.png" id="MainContentPlaceHolder_imgHelpSearchPreferences" style="border: none;" title="" class="toolTip" alt="Search Preferences Help Button" />
+                    </div>     
+                    
+                    <span class="bold">More Search Preferences</span> 
+                    
+                    <div id="selectedFilterList">                                                     
+                        <div id="attributeValueSelectedFilters">
+                        </div>
+                   </div>                 
+                   
+                    <div id="unSelectedFilterList">                                                     
+                        <div id="attributeValueUnSelectedFilters">
+                        </div>
+                    </div>                                                
+                    
+                    <div id="moreOptions">
+                        <input type="checkbox" id="chkMoreOptions" name="chkMoreOptions"  onclick="ToggleFilterSection();"  />                                        
+                        <label id="lblMoreOptions" for="chkMoreOptions">&nbsp;More Options...</label>                     
+                    </div>
+                               
+               </div>                                       
+            </div>
+            </div>
+
+
+            <div id="rateCategories" class="steps">
+
+                 <div class="sectionSubHeader">               
+                    <span class="number"> <img alt="5" style="border: none;" src="Images/step_5.png"/></span>
+                    <span>Pick your Quota:</span>                
+                </div>
+                <div class="sectionContent">                     
+                    <span class="bold">Quota:</span>
+                    <select id="selRatecategories" name="selRatecategories" onchange="UpdateResInfo();">
+                    <option></option>
+                    </select>    
+
+                    <div id="rateDescription">
+                    </div>
+                 </div>
+            </div>           
+            
+            <div id="siteSelection" class="steps">
+                <div class="sectionSubHeader">               
+                    <span class="number"><img alt='' src='https://secure.camis.com/DiscoverCamping/Images/step_5.png' id='step5Image'/></span>
+                    <span>Pick your site:</span>                
+                </div>
+            
+                  <!-- Single site based trips -->
+                <div id="singleSiteItem">    
+                    <div  class="sectionContent">                            
+                        <div class="info focus" tabindex="0">
+                            <span>Select a site from the drop down box or click on a site on the map, list or calendar. </span>
+                            <img src="https://secure.camis.com/DiscoverCamping/Images/ToolTipHelpIcon_Blue.png" id="MainContentPlaceHolder_imgHelpPickSite" style="border: none;" title="" class="toolTip" alt="Sites Help Button" />
+                        </div>                                       
+                        <label id="selectResourceLabel" for="selResource" class="bold">Site:</label>
+                        <select id="selResource" name="selResource" onchange="selResource_OnChange();">
+                        <option></option>
+                        </select>                                
+                        <span class="rightButton"><input type="button" id="rceDetailLink" value="Details" onclick="GetResourceDetails();"/></span><br /><br />
+                    </div>
+                </div>
+            
+                                                                     
+                
+       
+                                             
+                                             
+                <!-- Itinerary based trips -->
+                <div id="itineraryItem">    
+                   <div  class="sectionContent">      
+                    
+                     <div id="itineraryHelpText">
+                        <div class="info focus" tabindex="0">
+                                <span id="itineraryTooltipMessage">Select a site from the drop down box or click on a site on the map, list or calendar.</span>
+                                <img src="https://secure.camis.com/DiscoverCamping/Images/ToolTipHelpIcon_Blue.png" id="MainContentPlaceHolder_imgHelpItinerary" style="border: none;" class="toolTip" alt="Itinerary Help" />
+                        </div>   
+                    </div>       
+                                        
+                    <div id="apSelection">
+                        <div id="apItem">
+                            
+                            
+                        </div>                                   
+                    </div>
+                          
+                                
+                    <div id="itinerary">
+                    </div>
+                </div>                                                                                        
+               </div> 
+
+                <!--Orientation Time for BC Bowron lake-->
+                <div id="orientationTimeItem">          
+                     <div  class="sectionContent">                
+                            <label for="MainContentPlaceHolder_OrientationTimeList" id="MainContentPlaceHolder_OrientationTimeLabel" class="bold">Orientation Time:</label>
+                            <select name="ctl00$MainContentPlaceHolder$OrientationTimeList" id="MainContentPlaceHolder_OrientationTimeList" onchange="UpdateResInfo();">
+
+</select>                        
+                      </div>    
+                </div>          
+            </div>
+            
+                          
+            <div class="sectionContent">
+                <div id="reservationError" class="focus"></div>
+                <div id="resInfoAcceptance">
+                    <span id="reserveButtonSpan" class="field reserveButton">
+                        <input type="button" id="reserveButton" disabled="disabled" value="Reserve" onclick="AcceptResInfo();" />
+                    </span>
+                        <a id="lnkResetButton" href="javascript:__doPostBack(&#39;ctl00$MainContentPlaceHolder$lnkResetButton&#39;,&#39;&#39;)">Reset Form</a>
+                </div>
+            </div>          
+        </div>
+    
+    
+    <div id="centerContent">         
+        <div id="viewPanel">
+           
+            <div id = "viewerTopButtonsPanel">          
+            <div id="InformationListPanel">             
+            </div>
+
+            <div id="viewControlPanel">
+                <span id="MapViewTab"><a id="MainContentPlaceHolder_MapLink" href="https://secure.camis.com/DiscoverCamping/BritishColumbiaParks/CoastRegion?Map">Map</a></span>
+                <span id="ListViewTab" class="active"><a id="MainContentPlaceHolder_ListLink" class="active" href="https://secure.camis.com/DiscoverCamping/BritishColumbiaParks/CoastRegion?List">Availability List</a></span>
+                <span id="CalendarViewTab"><a id="MainContentPlaceHolder_CalendarLink" href="https://secure.camis.com/DiscoverCamping/BritishColumbiaParks/CoastRegion?Calendar">Calendar</a></span>
+                                
+            </div>          
+            </div>
+            
+            <!-- Wrap viewPort in a panel for future enhancement (dragging viewport etc) -->        
+            <div id="viewPortPanel">
+            
+                <div id="viewPort">
+                    <div id='viewTopLinks'><div id='legendButton'><a id='lnkLegend' class='lnkLegend' href='#' onclick='ToggleLegend();' tabindex='38'>Legend</a></div><div id="viewBCTop" class="breadcrumbs"><span class="bold">Location:</span> <span class=""><a id="linkBCOverview" href="/DiscoverCamping/BritishColumbiaParks?List" >British Columbia Parks</a></span> &gt; Coast Region</div>
+</div><div class="gridHeadingContainer"><div class="locationHeader">Coast Region</div><div id="availabilityLegend"><ul id="availabilityLegendList1"><li><img title="Available" alt="Available" src="https://secure.camis.com/DiscoverCamping/Images/available_icon20x20.png" /><span> - Available</span></li><li><img title="Restrictions" alt="Restrictions"  src="https://secure.camis.com/DiscoverCamping/Images/filtered_icon20x20.png" /><span> - Restrictions</span></li></ul><ul id="availabilityLegendList2"><li><img title="Unavailable" alt="Unavailable"  src="https://secure.camis.com/DiscoverCamping/Images/unavailable_icon20x20.png" /><span> - Unavailable</span></li><li><img title="No sites of selected type found" alt="No sites of selected type found"  src="https://secure.camis.com/DiscoverCamping/Images/nomatchingresources_icon20x20.png" /><span> - No sites of selected type found</span></li></ul><ul id="availabilityLegendList3"><li><img title="Does not match search criteria / Non-Reservable" alt="Does not match search criteria / Non-Reservable"  src="https://secure.camis.com/DiscoverCamping/Images/nonreservable_icon20x20.png" /><span> - Does not match search criteria / Non-Reservable</span></li><li><img title="FCFS - Park Use" alt="FCFS - Park Use"  src="https://secure.camis.com/DiscoverCamping/Images/parkavailability_icon20x20.png" /><span> - FCFS - Park Use</span></li></ul></div></div><br/><ul id='availabilitySortOptions'><li><input type="radio" id="radSortByAvail" name="radSortOption"  value="Availability"  onclick="SortByAvail();" title="Sort by availability"/><a   id="lnkSortByAvail" href="#" onclick="SortByAvail();">Sort by availability</a></li><li><input type="radio" id="radSortByName" name="radSortOption" value="Name" checked="checked" onclick="SortByName();" title="Sort by name" /><a  id="lnkSortByName" href="#" onclick="SortByName();">Sort by name</a></li></ul><div id="viewAvailabilityMsg">Select a park to view site availability.</div><ul class="list_new">
+<li><img alt="Unavailable" title="Unavailable" src="Images/unavailable_icon.png"/><a href="/DiscoverCamping/AliceLakeProvincialPark?List">Alice Lake Provincial Park</a> (<a href="#" onclick="GetLocationDetails('7332a3dd-a271-4442-a8d4-3a2cbd824115');">More Info</a>)</li><li><img alt="FCFS - Park Use" title="FCFS - Park Use" src="Images/parkavailability_icon.png"/><a href="/DiscoverCamping/BambertonProvincialPark?List">Bamberton Provincial Park</a> (<a href="#" onclick="GetLocationDetails('322a8024-7b10-4af9-8b49-2f2a65d162ed');">More Info</a>)</li><li><img alt="FCFS - Park Use" title="FCFS - Park Use" src="Images/parkavailability_icon.png"/><a href="/DiscoverCamping/BirkenheadLakeProvincialPark?List">Birkenhead Lake Provincial Park</a> (<a href="#" onclick="GetLocationDetails('e4c70612-7419-488f-b8f8-f11e8caaaf43');">More Info</a>)</li><li><img alt="FCFS - Park Use" title="FCFS - Park Use" src="Images/parkavailability_icon.png"/><a href="/DiscoverCamping/CowichanRiverProvincialPark?List">Cowichan River Provincial Park</a> (<a href="#" onclick="GetLocationDetails('f665a1a0-574d-4be5-882d-5592a0f40648');">More Info</a>)</li><li><img alt="Unavailable" title="Unavailable" src="Images/unavailable_icon.png"/><a href="/DiscoverCamping/CultusLakeProvincialPark?List">Cultus Lake Provincial Park</a> (<a href="#" onclick="GetLocationDetails('872eef9a-fcce-4fb8-a36e-aa8b7eabafbf');">More Info</a>)</li><li><img alt="Available" title="Available" src="Images/available_icon.png"/><a href="/DiscoverCamping/ElkFallsProvincialPark?List">Elk Falls Provincial Park</a> (<a href="#" onclick="GetLocationDetails('c014b403-ca58-4a09-87dc-5862a64a5deb');">More Info</a>)</li><li><img alt="FCFS - Park Use" title="FCFS - Park Use" src="Images/parkavailability_icon.png"/><a href="/DiscoverCamping/EnglishmanRiverFallsProvincialPark?List">Englishman River Falls Provincial Park</a> (<a href="#" onclick="GetLocationDetails('5ffd0412-5c01-4867-8c21-07005eec67ca');">More Info</a>)</li><li><img alt="FCFS - Park Use" title="FCFS - Park Use" src="Images/parkavailability_icon.png"/><a href="/DiscoverCamping/FillongleyProvincialPark?List">Fillongley Provincial Park</a> (<a href="#" onclick="GetLocationDetails('f6c4dda6-0bb6-4775-beb1-07f899554390');">More Info</a>)</li><li><img alt="Unavailable" title="Unavailable" src="Images/unavailable_icon.png"/><a href="/DiscoverCamping/FrenchBeachProvincialPark?List">French Beach Provincial Park</a> (<a href="#" onclick="GetLocationDetails('18e3ba20-3ac7-494c-9262-ac97565fc80b');">More Info</a>)</li><li><img alt="Campsite not found" title="Campsite not found" src="Images/nomatchingresources_icon.png"/><a href="/DiscoverCamping/Garibaldi-BackcountryCamping?List">Garibaldi - Backcountry Camping</a> (<a href="#" onclick="GetLocationDetails('23a862fe-6142-41c9-badf-e46bf042e11b');">More Info</a>)</li><li><img alt="FCFS - Park Use" title="FCFS - Park Use" src="Images/parkavailability_icon.png"/><a href="/DiscoverCamping/GoldenEarsProvincialPark?List">Golden Ears Provincial Park</a> (<a href="#" onclick="GetLocationDetails('9f51856e-0c99-4d48-a9f5-4da522748a69');">More Info</a>)</li><li><img alt="Does not match search criteria / Non-Reservable" title="Does not match search criteria / Non-Reservable" src="Images/nonreservable_icon.png"/><a href="/DiscoverCamping/GoldstreamProvincialPark?List">Goldstream Provincial Park</a> (<a href="#" onclick="GetLocationDetails('347bee13-d956-4ff2-b8f0-54287a8dca00');">More Info</a>)</li><li><img alt="Does not match search criteria / Non-Reservable" title="Does not match search criteria / Non-Reservable" src="Images/nonreservable_icon.png"/><a href="/DiscoverCamping/GordonBayProvincialPark?List">Gordon Bay Provincial Park</a> (<a href="#" onclick="GetLocationDetails('25a4006b-4292-4b4d-b1e7-7becc4a4208a');">More Info</a>)</li><li><img alt="FCFS - Park Use" title="FCFS - Park Use" src="Images/parkavailability_icon.png"/><a href="/DiscoverCamping/InlandLakeProvincialPark?List">Inland Lake Provincial Park</a> (<a href="#" onclick="GetLocationDetails('6ba0b07b-0877-4bf5-b203-85081277041d');">More Info</a>)</li><li><img alt="FCFS - Park Use" title="FCFS - Park Use" src="Images/parkavailability_icon.png"/><a href="/DiscoverCamping/JuandeFucaProvincialPark?List">Juan de Fuca Provincial Park</a> (<a href="#" onclick="GetLocationDetails('b5c96202-8510-4532-afc5-1a95b266251e');">More Info</a>)</li><li><img alt="FCFS - Park Use" title="FCFS - Park Use" src="Images/parkavailability_icon.png"/><a href="/DiscoverCamping/LittleQualicumFallsProvincialPark?List">Little Qualicum Falls Provincial Park</a> (<a href="#" onclick="GetLocationDetails('edf7d010-ef10-44e7-b567-d7fc905a773d');">More Info</a>)</li><li><img alt="FCFS - Park Use" title="FCFS - Park Use" src="Images/parkavailability_icon.png"/><a href="/DiscoverCamping/LovelandBayProvincialPark?List">Loveland Bay Provincial Park</a> (<a href="#" onclick="GetLocationDetails('d58521cb-76b4-46de-b859-aedaa81cd43f');">More Info</a>)</li><li><img alt="Restrictions" title="Restrictions" src="Images/filtered_icon.png"/><a href="/DiscoverCamping/MiracleBeachProvincialPark?List">Miracle Beach Provincial Park</a> (<a href="#" onclick="GetLocationDetails('81779ef9-602c-478c-ad94-a50f6be904f6');">More Info</a>)</li><li><img alt="FCFS - Park Use" title="FCFS - Park Use" src="Images/parkavailability_icon.png"/><a href="/DiscoverCamping/MontagueHarbourMarineProvincialPark?List">Montague Harbour Marine Provincial Park</a> (<a href="#" onclick="GetLocationDetails('00c204a9-ce4f-4b6a-94d4-e3a86b32634e');">More Info</a>)</li><li><img alt="FCFS - Park Use" title="FCFS - Park Use" src="Images/parkavailability_icon.png"/><a href="/DiscoverCamping/MortonLakeProvincialPark?List">Morton Lake Provincial Park</a> (<a href="#" onclick="GetLocationDetails('b6e6eff4-1ae7-41d8-81cb-9ebad09a265f');">More Info</a>)</li><li><img alt="Campsite not found" title="Campsite not found" src="Images/nomatchingresources_icon.png"/><a href="/DiscoverCamping/MountSeymourProvincialPark?List">Mount Seymour Provincial Park</a> (<a href="#" onclick="GetLocationDetails('d0424349-bf11-47ba-a5ff-9b06ee56f180');">More Info</a>)</li><li><img alt="FCFS - Park Use" title="FCFS - Park Use" src="Images/parkavailability_icon.png"/><a href="/DiscoverCamping/NairnFallsProvincialPark?List">Nairn Falls Provincial Park</a> (<a href="#" onclick="GetLocationDetails('ad27653a-8228-4388-a023-e097881226bd');">More Info</a>)</li><li><img alt="Unavailable" title="Unavailable" src="Images/unavailable_icon.png"/><a href="/DiscoverCamping/NewcastleIslandMarineProvincialPark?List">Newcastle Island Marine Provincial Park</a> (<a href="#" onclick="GetLocationDetails('f7361310-2cef-4482-a05e-c4d33be905e0');">More Info</a>)</li><li><img alt="Campsite not found" title="Campsite not found" src="Images/nomatchingresources_icon.png"/><a href="/DiscoverCamping/PlumperCoveMarineProvincialPark?List">Plumper Cove Marine Provincial Park</a> (<a href="#" onclick="GetLocationDetails('8edb8e80-1e25-4707-aea6-96a8ca2e8b72');">More Info</a>)</li><li><img alt="FCFS - Park Use" title="FCFS - Park Use" src="Images/parkavailability_icon.png"/><a href="/DiscoverCamping/PorpoiseBayProvincialPark?List">Porpoise Bay Provincial Park</a> (<a href="#" onclick="GetLocationDetails('2a448038-07b7-4ab8-b597-cd9a5bba281e');">More Info</a>)</li><li><img alt="Unavailable" title="Unavailable" src="Images/unavailable_icon.png"/><a href="/DiscoverCamping/PorteauCoveProvincialPark?List">Porteau Cove Provincial Park</a> (<a href="#" onclick="GetLocationDetails('a464bd5b-53c1-422d-9a77-da0bdefcabe6');">More Info</a>)</li><li><img alt="Does not match search criteria / Non-Reservable" title="Does not match search criteria / Non-Reservable" src="Images/nonreservable_icon.png"/><a href="/DiscoverCamping/RathtrevorBeachProvincialPark?List">Rathtrevor Beach Provincial Park</a> (<a href="#" onclick="GetLocationDetails('2bfecfa0-1e87-477f-8df6-d5b914840e88');">More Info</a>)</li><li><img alt="Unavailable" title="Unavailable" src="Images/unavailable_icon.png"/><a href="/DiscoverCamping/RolleyLakeProvincialPark?List">Rolley Lake Provincial Park</a> (<a href="#" onclick="GetLocationDetails('d2063d5a-5c85-4b89-92cd-b03e06f27249');">More Info</a>)</li><li><img alt="FCFS - Park Use" title="FCFS - Park Use" src="Images/parkavailability_icon.png"/><a href="/DiscoverCamping/RuckleProvincialPark?List">Ruckle Provincial Park</a> (<a href="#" onclick="GetLocationDetails('8baf198a-6257-47ef-b4a1-708805f48058');">More Info</a>)</li><li><img alt="FCFS - Park Use" title="FCFS - Park Use" src="Images/parkavailability_icon.png"/><a href="/DiscoverCamping/SalteryBayProvincialPark?List">Saltery Bay Provincial Park</a> (<a href="#" onclick="GetLocationDetails('48fbde8b-78e1-4cc0-b608-399298f2cd95');">More Info</a>)</li><li><img alt="FCFS - Park Use" title="FCFS - Park Use" src="Images/parkavailability_icon.png"/><a href="/DiscoverCamping/SasquatchProvincialPark?List">Sasquatch Provincial Park</a> (<a href="#" onclick="GetLocationDetails('60ee1cec-7fcb-4681-bbe2-c2daf9bd4a67');">More Info</a>)</li><li><img alt="Campsite not found" title="Campsite not found" src="Images/nomatchingresources_icon.png"/><a href="/DiscoverCamping/ShannonFallsProvincialPark?List">Shannon Falls Provincial Park</a> (<a href="#" onclick="GetLocationDetails('105e9ac8-19b4-4135-bf9b-3adddaa6088c');">More Info</a>)</li><li><img alt="FCFS - Park Use" title="FCFS - Park Use" src="Images/parkavailability_icon.png"/><a href="/DiscoverCamping/SkagitValleyProvincialPark?List">Skagit Valley Provincial Park</a> (<a href="#" onclick="GetLocationDetails('03643a8a-7db9-4868-9cc6-b35b4c5d55a2');">More Info</a>)</li><li><img alt="FCFS - Park Use" title="FCFS - Park Use" src="Images/parkavailability_icon.png"/><a href="/DiscoverCamping/SmeltBayProvincialPark?List">Smelt Bay Provincial Park</a> (<a href="#" onclick="GetLocationDetails('8933dee6-ff19-4c57-9f37-704d2c3b0871');">More Info</a>)</li><li><img alt="FCFS - Park Use" title="FCFS - Park Use" src="Images/parkavailability_icon.png"/><a href="/DiscoverCamping/SproatLakeProvincialPark?List">Sproat Lake Provincial Park</a> (<a href="#" onclick="GetLocationDetails('52c04bf7-146c-48b1-baa4-2221392a3276');">More Info</a>)</li><li><img alt="FCFS - Park Use" title="FCFS - Park Use" src="Images/parkavailability_icon.png"/><a href="/DiscoverCamping/StampRiverProvincialPark?List">Stamp River Provincial Park</a> (<a href="#" onclick="GetLocationDetails('ad240bc4-ab39-4453-8a8f-ae526e4728d2');">More Info</a>)</li><li><img alt="FCFS - Park Use" title="FCFS - Park Use" src="Images/parkavailability_icon.png"/><a href="/DiscoverCamping/StrathconaProvincialPark?List">Strathcona Provincial Park</a> (<a href="#" onclick="GetLocationDetails('5f473db2-941f-4afd-8734-b4cb123fd339');">More Info</a>)</li><li><img alt="Campsite not found" title="Campsite not found" src="Images/nomatchingresources_icon.png"/><a href="/DiscoverCamping/TaylorArmProvincialPark?List">Taylor Arm Provincial Park</a> (<a href="#" onclick="GetLocationDetails('ade9a380-836f-4bc9-9716-c5504ff3cfe6');">More Info</a>)</li></ul><div id="viewBCBot" class="breadcrumbs"><span class="bold">Location:</span> <span class=""><a id="linkBCOverview" href="/DiscoverCamping/BritishColumbiaParks?List" >British Columbia Parks</a></span> &gt; Coast Region</div>
+
+                </div>
+                
+
+                <!--section to show popup messages related with the reservation type -->
+                <div id="resTypePopupMessagePanel">                        
+                </div>                    
+
+                <div id="popupMessagePanel">                        
+                </div>   
+
+                <div id="rceDetailPanel">                  
+                </div>        
+                
+                <div id="multipleSelectionPanel" class="popup">
+                    <div id="multipleSelectionPanelContent">
+                    </div>
+                </div>       
+
+                <div id="attractionsDetailPanel">   
+                   <div id="attractionsTypeSection">
+                        <label id="labelAttractionsType" for="selAttractionType" class="bold">Attraction Type:</label>&nbsp;     
+                        <select name="selAttractionType" id="selAttractionType" onchange="GetAttractionDetails();" >
+                         <option></option>
+                       </select>
+                   </div>               
+                   <div id="attractionsDrivingDistanceSection">             
+                        <label id="labelDrivingDistance" for="selDrivingDistance" class="bold">Driving distance within:</label>&nbsp;               
+                        <select name="selDrivingDistance" id="selDrivingDistance" onchange="GetAttractionDetails();"  >
+                            <option></option>
+                       </select>   
+                       <input type="radio" name="rdbUnit" id="rdbDistanceInKilometers" value="Kilometres" onclick="GetAttractionDetails();" checked="checked" />
+                       <label for="rdbDistanceInKilometers">Kilometres</label>&nbsp;&nbsp;&nbsp;
+                       <input type="radio" name="rdbUnit" id="rdbDistanceInMiles" value="Miles" onclick="GetAttractionDetails();" />
+                       <label for="rdbDistanceInMiles">Miles</label>        
+                   </div>
+                   <div id="attractionsDetailPanelContent" class="sectionContent">
+                   </div>
+                </div>     
+               
+               <div id="accessibleParkingPermitDetailsPopup">
+                    <div class="sectionContent">
+                        <div id="parkingPermitDetailsErrorBox"><div id="parkingPermitDetailsErrorMessages"></div></div>
+                        <p>Accessible/barrier free campsites are designed for campers with accessibility needs. An accessible parking permit is required to determine eligibility for these campsites and will be validated during the check-in process at the park.</p>
+
+                        <div class="parkingPermitDetailsForm">
+                            <p>
+                                <label id="lblParkingPermitNumber" for="txtParkingPermitNumber" class="bold">Accessible Parking Permit #:</label>&nbsp;&nbsp;&nbsp;
+                                <input type="text" id="txtParkingPermitNumber" name="txtParkingPermitNumber"/> 
+                            </p>
+                            <p>
+                                 <label id="lblParkingPermitExpiry" for="txtParkingPermitExpiry" class="bold">Expiry (MM/YY):</label>&nbsp;&nbsp;&nbsp;
+                                 <input type="text" id="txtParkingPermitExpiry" name="txtParkingPermitExpiry" class="month-year-picker" readonly="readonly" /> 
+                             </p>
+                        </div>
+                    </div>
+               </div>
+
+                <div id="switchDisplayModePopup">
+                    <div class="sectionContent">                       
+                        <p>By continuing, the nightly sites you have selected below will be dropped to allow you to select a single site for your requested stay.</p>                   
+                    </div>
+               </div>
+
+               <div id="groupHoldReservationPopup">
+                    <div class="sectionContent">                       
+                        <p>You are choosing to complete a reservation outside of the group hold. Your reservation will not be associated with other reservations in the group hold. Are you sure you wish to continue completing a reservation separate from the group hold?</p>                   
+                    </div>
+               </div>
+
+             </div>            
+            
+        </div>
+    </div>
+        
+    
+	<div id="rcePopLabel" class="na">
+	    <table summary="Show sitename and type on hover over the site">
+	        <tr><td scope="row" class="label">Site:</td><td><span id="rcePopLabel_rceName">&nbsp;</span></td></tr>
+	        <tr><td scope="row" class="label">Type:</td><td><span id="rcePopLabel_rceType">&nbsp;</span></td></tr>
+	        <tr><td scope="row" class="label">Max Equip:</td><td><span id="rcePopLabel_maxEquip">&nbsp;</span></td></tr>
+	        <tr><td scope="row" class="center" colspan="2"><span id="rcePopLabel_avail">&nbsp;</span></td></tr>
+	    </table>
+	</div>
+	
+	<div id="locPopLabel" class="na">
+	    <table summary="Show location name and availability on hover over the location">
+	        <tr><td scope="row" ><span id="locPopLabel_locName">&nbsp;</span></td></tr>
+	        <tr><td scope="row" class="center"><span id="locPopLabel_avail">&nbsp;</span></td></tr>
+	    </table>
+	</div>
+	
+	<div id="mapPopLabel" class="na">
+	    <table summary="Show map name and availability on hover over the campground map">
+	        <tr><td scope="row" ><span id="mapPopLabel_mapName">&nbsp;</span></td></tr>
+	        <tr><td scope="row" class="center"><span id="mapPopLabel_avail">&nbsp;</span></td></tr>
+	    </table>
+	</div>    
+	
+            
+    <iframe id="dataPortal" title="Data Portal" >
+        Didn't Render.
+    </iframe>  
+     
+    <script type="text/javascript" charset="utf-8">
+
+        $(document).ready(function () {
+            $("#multipleSelectionPanel").draggable();
+
+            //to set the focus to the Jquery dialog box in IE if it opens
+            $(":tabbable:first").focus(function () {
+                $(".ui-dialog:visible:last :tabbable:first").focus();
+            })
+        });
+     </script>
+  
+
+            </div>
+            
+
+        </div>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+window.onresize=ViewerBody_OnResize;
+g_locale="en-CA";
+document.setDisplay("orientationTimeItem","none");
+g_bAutoUpdate=false;
+g_QuickDateListID="MainContentPlaceHolder_QuickDateList";
+g_LocationListClientID="MainContentPlaceHolder_LocationList";
+g_currentPage="Viewer";
+accessPointId = 'MainContentPlaceHolder_AccessPointList';
+mapListId = 'MainContentPlaceHolder_MapList';
+orientationTimesId = 'MainContentPlaceHolder_OrientationTimeList';
+g_applicationUrl="https://secure.camis.com/DiscoverCamping/";
+document.setImage("calendarButton","Images/calendar.png");
+document.setImage("depCalendarButton","Images/calendar.png");
+EnableElement("aspnetForm", "txtArrDateHidden");
+g_iType = TYPE_REGULAR;
+document.setDisplay("sectionSwitchDisplayMode", "none");
+document.setMarkup("resTypeMessagePanel","");MONTH_NAMES=["January","February","March","April","May","June","July","August","September","October","November","December","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+DAY_NAMES=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+Date.prototype.aMonthNames=["January","February","March","April","May","June","July","August","September","October","November","December"];
+Date.prototype.aAbbrMonthNames=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+Date.prototype.aWeekdayNames=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+Date.prototype.aAbbrWeekdayNames=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+Date.prototype.aDaysOfWeekInitials=["S","M","T","W","T","F","S"];
+aDayPostfix = ["st","nd","rd","th","th","th","th","th","th","th","th","th","th","th","th","th","th","th","th","th","st","nd","rd","th","th","th","th","th","th","th","st"];
+InitDates(new Date(2017, 5, 26), new Date(2017, 9, 26), 1, 14);
+var selArrMth=document.getElementById('selArrMth');selArrMth.title="Arrival Month";var selArrDay=document.getElementById('selArrDay');selArrDay.title="Arrival Day";SetValue("txtArrivalCalendarDisabledStartDate",'2017-06-26');
+SetValue("txtArrivalCalendarDisabledEndDate",'2017-10-26');
+g_sArrivingOn = 'Arriving on';g_sDepartingOn = 'Departing on';g_sMM = 'Month';g_sDD = 'Day';SetArrDate();
+SetDepDate();
+PopArrMth();
+PopArrDay();
+InitDepDates(new Date(2017, 6, 2), new Date(2017, 10, 9));
+PopDepMth();
+PopDepDay();
+SetValue("txtDepCalendarDisabledStartDate",'2017-07-02');
+SetValue("txtDepCalendarDisabledEndDate",'2017-11-09');
+g_showDepDateSection = false;
+document.setDisplay("departureDateSection", "none");
+document.setDisplay("fullDepartureDate", "block");
+document.setDisplay("nightsSection", "block");
+document.setDisplay("quickDate", "block");
+document.setDisplay("depDateSepLabel", "none");
+g_dateNotSelectedMsg = "No dates have been selected. Availability is shown only when a date range is specified.";
+document.setDisplay("datesNotSelected","none");EnableElement(null, "selNumNights");SetArrivalDateFromCalendar(new Date(2017, 6, 1));
+g_showNightsSection=true;
+SetNumNights(2);
+SetDepDate(new Date(2017, 6, 3));
+document.setMarkup("noReservationDatesMessage","");document.setDisplay("dateSection", "block");
+document.setDisplay("sectionDateHelp", "block");
+document.setMarkup("dateHelpText","<p><b>4 Month Window:</b> As of 7:00AM PDT, maximum arrival date is Thu Oct 26, 2017.<br /> Check <a href='Help.aspx' tabindex='-1'>help section</a> for more details.</p>Quick Dates lists some popular dates such as the next couple of weekends and the next holiday weekend. You can select one of these or set your own arrival date and number of nights. If you want to view campground layout, you don't need to select dates.");document.setDisplay("sectionDateArrivalHelp", "none");
+document.setDisplay("sectionGroupHoldReservation", "none");
+document.setDisplay("importantInformationLink","none");document.setDisplay("sectionImportantInformation","none");document.setDisplay("swimmingClassLevel","none");document.setDisplay("swimmingTime","none");document.setDisplay("equipment", "none");
+InitSelect( "selEquipmentSub", new Array(new Option("--Select Equipment--",null),new Option("Single Tent","Single Tent"),new Option("2 Tents","2 Tents/Shelters"),new Option("3 Tents","3 Tents/Shelters"),new Option("Van/Camper","Van/Camper"),new Option("Trailer up to 18ft","Sm Trailer up to 18ft"),new Option("Trailer or RV up to 32ft","Lg Trailer/Motorhome 18-32ft"),new Option("Trailer or RV over 32ft","XL Trailer/Motorhome 32ft +")), "Single Tent" );
+document.setDisplay("equipmentSub", "block");
+$("#equipmentSub").removeClass("boatDetails");
+document.setDisplay("singleCat", "none");
+document.setDisplay("partySizeMessage","block");
+document.setMarkup("partySizeMessage","Maximum party size is 8, with no more than 4 adults (age 16 or more).");document.setDisplay("partySizeHelp","none");
+document.setDisplay("partySize", "block");
+document.setDisplay("boatLength", "none");
+document.setDisplay("boatDraft", "none");
+document.setDisplay("boatWidth", "none");
+g_mapType = MAPTYPE_REGION;
+document.setDisplay("tentPads", "none");
+InitSelect( "selResType", new Array(new Option("Campsite","Campsite"),new Option("Cabin","Roofed"),new Option("Group Campgrounds","Group"),new Option("Group Picnic Area","DayUseFacility"),new Option("Backcountry Bowron Lake","BackcountryBowronLake"),new Option("Backcountry Berg Lake","BackcountryBergLake"),new Option("Backcountry Garibaldi","BackcountryGaribaldi")), "Campsite" );
+var resType=document.getElementById('selResType');resType.title="Reservation Type:";var g_resTypeMessageSettings = new Array();
+g_resTypeMessageSettings[0] = new Object({ResTypeName:"Campsite", Type:"",  AllowsReservation:"True", Title:"", Message:""});
+g_resTypeMessageSettings[1] = new Object({ResTypeName:"Roofed", Type:"",  AllowsReservation:"True", Title:"", Message:""});
+g_resTypeMessageSettings[2] = new Object({ResTypeName:"Group", Type:"",  AllowsReservation:"True", Title:"", Message:""});
+g_resTypeMessageSettings[3] = new Object({ResTypeName:"DayUseFacility", Type:"",  AllowsReservation:"True", Title:"", Message:""});
+g_resTypeMessageSettings[4] = new Object({ResTypeName:"BackcountryBowronLake", Type:"",  AllowsReservation:"True", Title:"", Message:""});
+g_resTypeMessageSettings[5] = new Object({ResTypeName:"BackcountryBergLake", Type:"",  AllowsReservation:"True", Title:"", Message:""});
+g_resTypeMessageSettings[6] = new Object({ResTypeName:"BackcountryGaribaldi", Type:"",  AllowsReservation:"True", Title:"", Message:""});
+document.setDisplay("maximumPartySizeMessage","none");g_oldResType = GetValue("selResType");
+g_objAttributeValueFilterList = new Array();
+g_objAttributeValueFilterList.push( new Object({Name:"ReservableOnline", FilterType:"include", DisplayName:"Reservable", ShowInclude:true, ShowExclude:false, ShowIconBesideName:false, AlwaysVisible:false}) );
+g_objAttributeValueFilterList.push( new Object({Name:"ElectricalService", FilterType:"", DisplayName:"Electrical Service", ShowInclude:true, ShowExclude:true, ShowIconBesideName:false, AlwaysVisible:false}) );
+g_objAttributeValueFilterList.push( new Object({Name:"WalkIn", FilterType:"", DisplayName:"WalkIn", ShowInclude:true, ShowExclude:true, ShowIconBesideName:false, AlwaysVisible:false}) );
+g_objAttributeValueFilterList.push( new Object({Name:"WheelChairAccessible", FilterType:"", DisplayName:"WheelChair Accessible", ShowInclude:true, ShowExclude:true, ShowIconBesideName:false, AlwaysVisible:false}) );
+g_objAttributeValueFilterList.push( new Object({Name:"DoubleSites", FilterType:"", DisplayName:"Double Sites", ShowInclude:true, ShowExclude:true, ShowIconBesideName:false, AlwaysVisible:false}) );
+g_sInclude = 'Include';g_sExclude = 'Exclude';g_sFeature = 'Feature';InitAttributeValueSelectedFilters();
+ShowUnSelectedFilters();
+document.setDisplay("SearchPreferences", "block");
+ToggleFilterSection();
+document.setDisplay("rateCategories","none");document.setDisplay("siteSelection","none");
+document.setDisplay("singleSiteItem","none");
+document.setDisplay("itineraryItem","none");
+DispLocStatus(true,"");
+document.setDisplay("reservationError","none");
+g_bAutoUpdate=true;
+SetViewContentFocus();document.setMarkup("InformationListPanel","<div><span class='disableLink'><a id='lnkMoreInfo' href='#' disabled class='button lnkMoreInfo'>More Info</a></span><span class='disableLink'><a id='lnkEvents' href='#' disabled class='button lnkEvent'>Events</a></span><span class='disableLink'><a href='#' id='lnkParkAvailability'  class='button lnkParkAvailability' disabled>&nbsp;&nbsp;FCFS Expected Availability</a></span></div>");document.setDisplay("siteRequirements","block");
+g_serverTime= new Date(2017, 5, 26, 13, 34, 42);g_localTimeZoneName='PDT';g_locale="en-CA";
+g_applicationUrl="https://secure.camis.com/DiscoverCamping/";
+g_showSwitchToMobileDialog="False";
+//]]>
+</script>
+<script type='text/javascript'>new Sys.WebForms.Menu({ element: 'mainMenu', disappearAfter: 500, orientation: 'horizontal', tabIndex: 0, disabled: false });</script></form>
+   
+   <!-- FooterStart -->
+    <div id="mainFooter">       
+                    
+            <div id="mainFooterNav">                       
+                <a href="https://secure.camis.com/DiscoverCamping/Home.aspx" id="lnkFooterHome" rel="external">Home</a> | 
+                <a href="https://secure.camis.com/DiscoverCamping/Help.aspx" id="lnkFooterHelp" rel="external">Help</a> | 
+                <a href="https://secure.camis.com/DiscoverCamping/FAQ.aspx" id="lnkFooterFAQ" rel="external">FAQ</a>  |               
+                <a href="https://secure.camis.com/DiscoverCamping/Comments.aspx" id="lnkFooterContactUs" rel="external">Contact Us</a>   
+                
+            </div>
+            <div class="followUs">
+            <ul>
+            <li>          
+		        <a rel="external" id="lnkFacebook" href="https://www.facebook.com/YourBCParks" onclick="TrackOutlink(this)" oncontextmenu="TrackOutlink(this)" target="_blank">
+			      <img src="https://secure.camis.com/DiscoverCamping/Images/SocialMedia/circle-facebook.png" alt="Facebook">
+		        </a> 
+	          </li>
+	          <li>          
+            <a rel="external" id="lnkBlog" href="http://engage.gov.bc.ca/bcparksblog/" onclick="TrackOutlink(this)" oncontextmenu="TrackOutlink(this)" target="_blank">
+            <img src="https://secure.camis.com/DiscoverCamping/Images/SocialMedia/circle-blog.png" alt="Blog">
+            </a> 
+            </li>
+            <li>          
+            <a rel="external" id="lnkInstagram" href="http://www.instagram.com/yourbcparks/" onclick="TrackOutlink(this)" oncontextmenu="TrackOutlink(this)" target="_blank">
+            <img src="https://secure.camis.com/DiscoverCamping/Images/SocialMedia/circle-instagram.png" alt="Instagram">
+            </a> 
+            </li>
+            <li>          
+            <a rel="external" id="lnkEvents" href="http://www.env.gov.bc.ca/bcparks/events/calendar/#eventList" onclick="TrackOutlink(this)" oncontextmenu="TrackOutlink(this)" target="_blank">
+            <img src="https://secure.camis.com/DiscoverCamping/Images/SocialMedia/circle-events.png" alt="Events">
+            </a> 
+            </li>
+            </ul>
+            </div>
+                             
+            
+        <span class="copyright">&copy; 2006-2017 CAMIS Inc. All Rights Reserved.&nbsp;(caweb4)</span>
+               
+    </div>  
+      
+    <script language="JavaScript" type="text/javascript">
+        docCookies.setItem("testcookie", "cookie");
+        if (docCookies.getItem('testcookie') == null) {
+            alert('Your browser does not have cookies enabled. Certain convenience features on this site require cookies.  Please enable cookies in your browser preferences.');
+        }       
+    </script>       
+</body>
+</html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head><title>
+	Untitled Page
+</title></head>
+<body>
+    <form method="post" action="./CoastRegion?404%3bhttps%3a%2f%2fsecure.camis.com%3a443%2fDiscoverCamping%2fBritishColumbiaParks%2fCoastRegion%3fList" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJNzgzNDMwNTMzZGST8ZQ4mWZfBa9KXOQHcdsoQGDIuY8n79gAf5b0J1ih7Q==" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="61A3DA03" />
+    <div>
+    
+    </div>
+    </form>
+</body>
+</html>
